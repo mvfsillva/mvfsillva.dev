@@ -1,0 +1,78 @@
+{
+  "name": "mvfsillva",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Marcus Silva <mvfsillva@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "gatsby",
+    "styled-components",
+    "javascript",
+    "react",
+    "xo",
+    "js",
+    "personal site"
+  ],
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "rimraf public",
+    "dev": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "lint": "xo --quiet",
+    "lint:css": "stylelint src/**/*.js",
+    "lint:fix": "xo --quiet --write src/**/*.js",
+    "precommit": "lint-staged",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^2.1.19",
+    "gatsby-image": "^2.0.30",
+    "gatsby-plugin-manifest": "^2.0.20",
+    "gatsby-plugin-offline": "^2.0.24",
+    "gatsby-plugin-react-helmet": "^3.0.7",
+    "gatsby-plugin-sharp": "^2.0.23",
+    "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-transformer-sharp": "^2.1.15",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-helmet": "^5.2.0",
+    "styled-components": "^4.1.3"
+  },
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "xo": "^0.24.0"
+  },
+  "xo": {
+    "parser": "babel-eslint",
+    "extends": [
+      "prettier",
+      "prettier/react",
+      "plugin:react/recommended"
+    ],
+    "plugins": [
+      "jsx-a11y"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": 0,
+      "import/no-unassigned-import": 0,
+      "import/no-unresolved": 0
+    },
+    "globals": [
+      "expect",
+      "it",
+      "describe"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn lint",
+      "prettier --semi false --single-quote --print-width 100 --tab-width 2 --trailing-comma all --write",
+      "git add"
+    ]
+  }
+}
