@@ -2,18 +2,20 @@ module.exports = {
   siteMetadata: {
     title: 'mvfsillva',
     description: 'Front-end developer',
-    author: `@mvfsillva`,
+    author: '@mvfsillva',
+    siteUrl: 'https://mvfsillva.dev',
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `static`,
+        name: 'static',
         path: `${__dirname}/src/static`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
   ],
 }
