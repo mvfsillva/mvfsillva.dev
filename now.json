@@ -1,6 +1,10 @@
 {
   "version": 2,
   "name": "mvfsillva",
+  "alias": [
+    "mvfsillva.dev",
+    "www.mvfsillva.dev"
+  ],
   "builds": [{
     "src": "package.json",
     "use": "@now/static-build",
