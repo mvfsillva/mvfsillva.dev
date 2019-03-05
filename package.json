@@ -23,7 +23,8 @@
     "lint:css": "stylelint src/**/*.js",
     "lint:fix": "xo --quiet --write src/**/*.js",
     "precommit": "lint-staged",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "now-build": "yarn build"
   },
   "dependencies": {
     "gatsby": "^2.1.19",
