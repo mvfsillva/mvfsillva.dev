@@ -76,15 +76,15 @@ theme.typography = {
   },
   title: {
     fontSize: '42px',
-    fontWeight: '300',
+    fontWeight: '400',
   },
   subtitle: {
     fontSize: '36px',
-    fontWeight: '100',
+    fontWeight: '300',
   },
   paragraph: {
     fontSize: '18px',
-    fontWeight: '100',
+    fontWeight: '300',
   },
   link: {
     fontSize: '18px',
