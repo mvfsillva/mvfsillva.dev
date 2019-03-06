@@ -6,6 +6,9 @@ import { StaticQuery } from 'gatsby'
 
 import theme from '../theme/main'
 import GlobalStyles from '../theme/global-styles'
+import FullContainer from '../styles/full-container'
+
+import Footer from '../components/footer'
 
 import { SiteTitle } from '../queries'
 
@@ -16,7 +19,7 @@ const Main = ({ title, children }) => (
     query={SiteTitle}
     render={({ site }) => (
       <ThemeProvider theme={theme}>
-        <>
+        <FullContainer>
           <Helmet title={title || site.siteMetadata.title}>
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:card" content="summary" />
@@ -25,10 +28,15 @@ const Main = ({ title, children }) => (
             <meta name="twitter:creator" content={site.siteMetadata.author} />
             <meta name="twitter:title" content={title || site.siteMetadata.title} />
             <meta name="twitter:description" content={site.siteMetadata.description} />
+            <link
+              href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+              rel="stylesheet"
+            />
           </Helmet>
           <GlobalStyles />
           {children}
-        </>
+          <Footer />
+        </FullContainer>
       </ThemeProvider>
     )}
   />
