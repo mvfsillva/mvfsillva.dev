@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
-import { StaticQuery } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 
 import theme from '../theme/main'
 import GlobalStyles from '../theme/global-styles'
@@ -10,13 +10,22 @@ import FullContainer from '../styles/full-container'
 
 import Footer from '../components/footer'
 
-import { SiteTitle } from '../queries'
-
 import lion from '../static/images/lion.svg'
 
 const Main = ({ title, children }) => (
   <StaticQuery
-    query={SiteTitle}
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+            siteUrl
+            description
+            author
+          }
+        }
+      }
+    `}
     render={({ site }) => (
       <ThemeProvider theme={theme}>
         <FullContainer>
