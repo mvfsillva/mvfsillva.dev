@@ -1,32 +1,43 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import shortid from 'shortid'
 
 import Anchor from './anchor'
 
 const Wrapper = styled.footer`
   width: 100%;
   padding: ${({ theme }) => theme.spacing.large};
-  text-align: center;
+  text-align: ${props => (props.center ? 'center' : 'left')};
   flex-shrink: 0;
+  a {
+    margin: ${({ theme }) => theme.spacing};
+  }
 `
 
-const Footer = ({ info, href }) => (
-  <Wrapper>
-    <Anchor href={href} rel="noopener noreferrer">
-      {info}
-    </Anchor>
+const Footer = ({ contacts, center }) => (
+  <Wrapper center={center}>
+    {contacts.map(({ name, link }) => (
+      <Anchor key={shortid.generate()} href={link} rel="noopener noreferrer">
+        {name}
+      </Anchor>
+    ))}
   </Wrapper>
 )
 
 Footer.defaultProps = {
-  info: `@mvfsillva © ${new Date().getUTCFullYear()}`,
-  href: 'https://github.com/mvfsillva',
+  contacts: [
+    {
+      name: `@mvfsillva © ${new Date().getUTCFullYear()}`,
+      link: 'https://github.com/mvfsillva',
+    },
+  ],
+  center: false,
 }
 
 Footer.propTypes = {
-  info: PropTypes.string,
-  href: PropTypes.string,
+  contacts: PropTypes.arrayOf(PropTypes.object),
+  center: PropTypes.bool,
 }
 
 export default Footer
