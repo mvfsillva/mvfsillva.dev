@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Lion = ({ color, size }) => (
-  <svg width={size} height={size} viewBox="0 0 435 479">
+const Lion = ({ color, width, height }) => (
+  <svg width={width} height={height} viewBox="0 0 435 479">
     <g>
       <path
         fill={color}
@@ -26,12 +26,14 @@ const Lion = ({ color, size }) => (
 
 Lion.defaultProps = {
   color: ({ theme }) => theme.color.black,
-  size: 50,
+  width: 50,
+  height: 50,
 }
 
 Lion.propTypes = {
   color: PropTypes.string,
-  size: PropTypes.number,
+  width: PropTypes.number,
+  height: PropTypes.number,
 }
 
 export default Lion

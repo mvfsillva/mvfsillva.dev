@@ -25,7 +25,7 @@ const Container = styled.div`
 const Hero = () => (
   <Wrapper>
     <Container>
-      <Lion />
+      <Lion width={90} height={100} />
     </Container>
   </Wrapper>
 )
