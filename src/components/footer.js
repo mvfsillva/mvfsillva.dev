@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import Link from './link'
+import Anchor from './anchor'
 
 const Wrapper = styled.footer`
   width: 100%;
@@ -13,9 +13,9 @@ const Wrapper = styled.footer`
 
 const Footer = ({ info, href }) => (
   <Wrapper>
-    <Link href={href} rel="noopener noreferrer">
+    <Anchor href={href} rel="noopener noreferrer">
       {info}
-    </Link>
+    </Anchor>
   </Wrapper>
 )
 
