@@ -27,7 +27,7 @@ const Hgroup = styled.hgroup`
   flex-direction: column;
 `
 
-const Container = styled.main`
+const Content = styled.main`
   width: 100%;
   max-width: 1400px;
   padding: ${({ theme }) => theme.spacing.xxxLarge};
@@ -35,18 +35,18 @@ const Container = styled.main`
   margin-right: auto;
   display: flex;
   justify-content: center;
-  height: 80vh;
+  flex: 1 0 auto;
 `
 
 const IndexPage = () => (
   <Main>
     <Hero />
-    <Container>
+    <Content>
       <Hgroup>
-        <Intro>Hi, I'm Marcus Silva.</Intro>
+        <Intro>Hi, I'm Marcus.</Intro>
         <SubTitle>Front-end Developer</SubTitle>
       </Hgroup>
-    </Container>
+    </Content>
   </Main>
 )
 
