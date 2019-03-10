@@ -73,33 +73,33 @@ theme.typography = {
   intro: {
     fontSize: '72px',
     fontWeight: '700',
-    LineHeight: '60px',
-    LetterSpacing: '5px',
+    lineHeight: '60px',
+    letterSpacing: '5px',
   },
   title: {
     fontSize: '42px',
     fontWeight: '400',
-    LineHeight: '50px',
-    LetterSpacing: '5px',
+    lineHeight: '50px',
+    letterSpacing: '5px',
   },
   subtitle: {
     fontSize: '36px',
     fontWeight: '300',
-    LineHeight: '40px',
-    LetterSpacing: '4px',
+    lineHeight: '40px',
+    letterSpacing: '4px',
   },
   paragraph: {
     fontSize: '18px',
     fontWeight: '300',
-    LineHeight: '32px',
-    LetterSpacing: '2px',
+    lineHeight: '32px',
+    letterSpacing: '2px',
   },
   link: {
-    fontSize: '18px',
+    fontSize: '14px',
     fontWeight: '400',
     textTransform: 'uppercase',
-    LineHeight: '30px',
-    LetterSpacing: '5px',
+    lineHeight: '30px',
+    letterSpacing: '5px'
   },
 }
 
