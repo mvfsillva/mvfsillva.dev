@@ -10,7 +10,7 @@ import FullContainer from '../styles/full-container'
 
 import Footer from '../components/footer'
 
-import lion from '../static/images/lion.svg'
+import lion from '../static/images/lion.png'
 
 const Main = ({ title, children }) => (
   <StaticQuery
