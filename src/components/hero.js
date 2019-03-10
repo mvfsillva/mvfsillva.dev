@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 import Lion from '../icons/lion'
+
+import Navbar from './navbar'
 
 const Wrapper = styled.header`
   position: relative;
@@ -14,18 +17,21 @@ const Wrapper = styled.header`
 `
 
 const Container = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: auto;
-  max-width: 980px;
   padding: ${({ theme }) => theme.spacing.large};
 `
 
 const Hero = () => (
   <Wrapper>
     <Container>
-      <Lion width={90} height={100} />
+      <Link to="/">
+        <Lion width={60} height={70} />
+      </Link>
+      <Navbar navigation={['about']} />
     </Container>
   </Wrapper>
 )
