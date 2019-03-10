@@ -46,7 +46,6 @@ const Main = ({ title, children }) => (
             </Helmet>
             <GlobalStyles />
             {children}
-            <Footer />
           </FullContainer>
         </ThemeProvider>
       )}
