@@ -25,7 +25,8 @@ module.exports = {
         start_url: '/',
         background_color: '#FFFFFF',
         theme_color: '#FFFFFF',
-        display: 'minimal-ui',
+        display: 'fullscreen',
+        orientation: 'portrait',
         icon: 'src/static/images/lion.png',
       },
     }
