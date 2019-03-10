@@ -29,6 +29,12 @@ module.exports = {
         orientation: 'portrait',
         icon: 'src/static/images/lion.png',
       },
+    },
+    {
+      resolve: 'gatsby-plugin-page-transitions',
+      options: {
+        transitionTime: 350
+      }
     }
   ],
 }
