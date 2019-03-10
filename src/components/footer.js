@@ -5,12 +5,10 @@ import styled from 'styled-components'
 import Link from './link'
 
 const Wrapper = styled.footer`
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  margin-top: ${({ theme }) => theme.spacing.xLarge};
-  margin-bottom: ${({ theme }) => theme.spacing.xLarge};
+  padding: ${({ theme }) => theme.spacing.large};
   text-align: center;
+  flex-shrink: 0;
 `
 
 const Footer = ({ info, href }) => (
