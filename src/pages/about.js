@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { transitions, transparentize } from 'polished'
 
-import Main from '../layouts/main'
+import { transition } from '../mixins/transition'
+
+import Seo from '../layouts/seo'
 import Paragraph from '../components/paragraph'
 import Footer from '../components/footer'
 
@@ -31,7 +34,7 @@ const Content = styled.div`
   align-items: center;
 `
 
-const Article = styled.article`
+const Main = styled.main`
   max-width: 700px;
 
   h1 {
@@ -49,6 +52,11 @@ const Return = styled.div`
   width: 200px;
   a {
     color: ${({ theme }) => theme.palette.black};
+    ${transitions(transition({ property: 'color', duration: '250ms' }))};
+    &:hover {
+      color: ${({ theme }) => transparentize(0.5, `${theme.palette.black}`)};
+      ${transitions(transition({ property: 'color', duration: '250ms' }))};
+    }
   }
 `
 
@@ -69,39 +77,35 @@ const About = () => {
   ]
 
   return (
-    <Main>
+    <Seo title="mvfsillva - about">
       <Container>
         <Avatar />
         <Content>
           <Return>
             <Link to="/">return to home</Link>
           </Return>
-          <Article>
-            <h1>Hi, I'm Marcus</h1>
+          <Main>
+            <h1>Hi, I'm Marcus Silva</h1>
             <Paragraph>I work as a Senior Front-end developer at IDwall.</Paragraph>
-            <br />
             <Paragraph>
-              Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss,
-              é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.
-              Paisis, filhis, espiritis santis. Mauris nec dolor in eros commodo tempor.
-              Aenean aliquam molestie leo, vitae iaculis nisl.
-              A ordem dos tratores não altera o pão duris.
+              The IDwall connects people and businesses using technology to build trust.
+              So you can offer a better experience to your customers and more security for both sides.
             </Paragraph>
-            <br />
             <Paragraph>
-              Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss,
-              é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.
-              Paisis, filhis, espiritis santis. Mauris nec dolor in eros commodo tempor.
-              Aenean aliquam molestie leo, vitae iaculis nisl.
-              A ordem dos tratores não altera o pão duris.
+              My main focus throughout my career has been web technologies and I love working with challenging and creative projects.
             </Paragraph>
-            <br />
-            <Paragraph>If you want to know more about me or get in touch:</Paragraph>
-            <Footer contacts={contacts} />
-          </Article>
+            <Paragraph>
+              As a programmer, I am constantly searching for best practices and I am also willing to try new technologies,
+              programming languages, and tools.
+            </Paragraph>
+            <Paragraph>
+              If you want to know more about me or get in touch:
+              <Footer contacts={contacts} />
+            </Paragraph>
+          </Main>
         </Content>
       </Container>
-    </Main>
+    </Seo>
   )
 }
 
