@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Main from '../layouts/main'
+import Seo from '../layouts/seo'
 import Content from '../styles/content'
 import Hero from '../components/hero'
+import Footer from '../components/footer'
 
 const Intro = styled.h1`
   ${({ theme }) => theme.typography.intro};
@@ -23,7 +24,7 @@ const Hgroup = styled.hgroup`
 `
 
 const IndexPage = () => (
-  <Main>
+  <Seo>
     <Hero />
     <Content>
       <Hgroup>
@@ -31,7 +32,8 @@ const IndexPage = () => (
         <SubTitle>Front-end Developer</SubTitle>
       </Hgroup>
     </Content>
-  </Main>
+    <Footer center />
+  </Seo>
 )
 
 export default IndexPage

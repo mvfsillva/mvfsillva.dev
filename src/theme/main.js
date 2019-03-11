@@ -89,10 +89,9 @@ theme.typography = {
     letterSpacing: '4px',
   },
   paragraph: {
-    fontSize: '18px',
+    fontSize: '16px',
     fontWeight: '300',
     lineHeight: '32px',
-    letterSpacing: '2px',
   },
   link: {
     fontSize: '14px',
