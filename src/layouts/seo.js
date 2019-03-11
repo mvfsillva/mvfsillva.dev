@@ -9,11 +9,9 @@ import theme from '../theme/main'
 import GlobalStyles from '../theme/global-styles'
 import FullContainer from '../styles/full-container'
 
-import Footer from '../components/footer'
-
 import lion from '../static/images/lion.png'
 
-const Main = ({ title, children }) => (
+const Seo = ({ title, children }) => (
   <PageTransition>
     <StaticQuery
       query={graphql`
@@ -53,9 +51,9 @@ const Main = ({ title, children }) => (
   </PageTransition>
 )
 
-Main.propTypes = {
+Seo.propTypes = {
   title: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
 
-export default Main
+export default Seo
