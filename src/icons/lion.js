@@ -25,7 +25,7 @@ const Lion = ({ color, width, height }) => (
 )
 
 Lion.defaultProps = {
-  color: ({ theme }) => theme.color.black,
+  color: `${({ theme }) => theme.color.black}`,
   width: 50,
   height: 50,
 }

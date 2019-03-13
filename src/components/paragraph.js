@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import { theme } from 'styled-tools'
 
 const Paragraph = styled.p`
-  ${({ theme }) => theme.typography.paragraph};
-  color: ${({ theme }) => theme.palette.black};
-  padding: ${({ theme }) => theme.spacing};
+  ${theme('typography.paragraph')};
+  color: ${theme('palette.black')};
+  padding: ${theme('spacing')};
 `
 
 export default Paragraph

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { theme } from 'styled-tools'
 
 import Lion from '../icons/lion'
 
@@ -9,8 +10,8 @@ import Navbar from './navbar'
 const Wrapper = styled.header`
   position: relative;
   width: 100%;
-  color: ${({ theme }) => theme.palette.black};
-  padding: ${({ theme }) => theme.spacing.medium};
+  color: ${theme('palette.black')};
+  padding: ${theme('spacing.medium')};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,7 +23,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: auto;
-  padding: ${({ theme }) => theme.spacing.large};
+  padding: ${theme('spacing.medium.large')};
 `
 
 const Hero = () => (

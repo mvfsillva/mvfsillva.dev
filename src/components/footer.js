@@ -2,16 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import shortid from 'shortid'
+import { theme, ifProp } from 'styled-tools'
 
 import Anchor from './anchor'
 
 const Wrapper = styled.footer`
   width: 100%;
-  padding: ${({ theme }) => theme.spacing.large};
-  text-align: ${props => (props.center ? 'center' : 'left')};
+  padding: ${theme('spacing.large')};
+  text-align: ${ifProp('center', 'center', 'left')};
   flex-shrink: 0;
   a {
-    margin: ${({ theme }) => theme.spacing};
+    margin: ${theme('spacing')};
   }
 `
 
