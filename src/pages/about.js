@@ -9,6 +9,8 @@ import Seo from '../layouts/seo'
 import Paragraph from '../components/paragraph'
 import Footer from '../components/footer'
 
+import contacts from '../helpers/contacts'
+
 import avatar from '../static/images/avatar.png'
 
 const Container = styled.section`
@@ -61,20 +63,6 @@ const Return = styled.div`
 `
 
 const About = () => {
-  const contacts = [
-    {
-      name: 'twitter',
-      link: 'https://twitter.com/mvfsillva'
-    },
-    {
-      name: 'github',
-      link: 'https://github.com/mvfsillva'
-    },
-    {
-      name: 'linkedin',
-      link: 'https://linkedin.com/in/mvfsilva'
-    },
-  ]
 
   return (
     <Seo title="mvfsillva - about">
