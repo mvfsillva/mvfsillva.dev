@@ -2,9 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Seo from '../layouts/seo'
+
 import Content from '../styles/content'
+
 import Hero from '../components/hero'
 import Footer from '../components/footer'
+
+import contacts from '../helpers/contacts'
 
 const Intro = styled.h1`
   ${({ theme }) => theme.typography.intro};
@@ -23,17 +27,21 @@ const Hgroup = styled.hgroup`
   flex-direction: column;
 `
 
-const IndexPage = () => (
-  <Seo>
-    <Hero />
-    <Content>
-      <Hgroup>
-        <Intro>Hi, I'm Marcus.</Intro>
-        <SubTitle>Front-end Developer</SubTitle>
-      </Hgroup>
-    </Content>
-    <Footer center />
-  </Seo>
-)
+const IndexPage = () => {
+
+  return (
+    <Seo>
+      <Hero />
+      <Content>
+        <Hgroup>
+          <Intro>Hi, I'm Marcus</Intro>
+          <SubTitle>Front-end Developer</SubTitle>
+        </Hgroup>
+      </Content>
+      <Footer center contacts={contacts} />
+    </Seo>
+  )
+}
+
 
 export default IndexPage
