@@ -94,11 +94,11 @@ theme.typography = {
     lineHeight: '32px',
   },
   link: {
-    fontSize: '14px',
-    fontWeight: '400',
+    fontSize: '12px',
+    fontWeight: '600',
     textTransform: 'uppercase',
     lineHeight: '30px',
-    letterSpacing: '5px'
+    letterSpacing: '5px',
   },
 }
 
