@@ -23,6 +23,10 @@ const Nav = styled.nav`
       ${transitions(transition({ property: 'color', duration: '250ms' }))};
     }
   }
+
+  @media ${theme('responsive.phone')} {
+    display: none;
+  }
 `
 
 const Navbar = ({ navigation }) => (
