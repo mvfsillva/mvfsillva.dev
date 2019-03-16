@@ -8,29 +8,27 @@ import Lion from '../icons/lion'
 import Navbar from './navbar'
 
 const Wrapper = styled.header`
-  position: relative;
   width: 100%;
-  color: ${theme('palette.black')};
   padding: ${theme('spacing.medium')};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `
 
 const Container = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: auto;
-  padding: ${theme('spacing.medium.large')};
+  margin-right: ${theme('spacing.medium.xxLarge')};
+  margin-left: ${theme('spacing.medium.xxLarge')};
+
+  @media ${theme('responsive.phone')} {
+    justify-content: center;
+  }
 `
 
 const Hero = () => (
   <Wrapper>
     <Container>
       <Link to="/">
-        <Lion width={60} height={70} />
+        <Lion width={50} height={60} />
       </Link>
       <Navbar navigation={['about']} />
     </Container>
