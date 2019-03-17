@@ -9,7 +9,7 @@ import Header from '../components/header'
 
 import contacts from '../helpers/contacts'
 
-import avatar from '../static/images/avatar.png'
+import mvfsillva from '../static/images/mvfsillva-usa.jpg'
 
 const Hero = styled.div`
   width: 100%;
@@ -23,8 +23,8 @@ const Hero = styled.div`
     position: absolute;
     width: 100%;
     height: 60vh;
-    opacity: .15;
-    background-image: url(${avatar});
+    opacity: .5;
+    background-image: url(${mvfsillva});
     background-position: center center;
     background-repeat:  no-repeat;
     background-size:  cover;
