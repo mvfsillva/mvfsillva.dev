@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import Seo from '../layouts/seo'
@@ -9,6 +9,7 @@ import Header from '../components/Header'
 import Footer from '../components/footer'
 
 import contacts from '../helpers/contacts'
+import intl from '../helpers/intl'
 
 const Intro = styled.h1`
   ${({ theme }) => theme.typography.intro};
@@ -27,21 +28,35 @@ const Hgroup = styled.hgroup`
   flex-direction: column;
 `
 
-const IndexPage = () => {
+class IndexPage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      lang: 'en',
+    }
+  }
 
-  return (
-    <Seo>
-      <Header navigation={['about', 'projects', 'articles']}/>
-      <Content>
-        <Hgroup>
-          <Intro>Hi, I'm Marcus</Intro>
-          <SubTitle>Front-end Developer</SubTitle>
-        </Hgroup>
-      </Content>
-      <Footer center contacts={contacts} />
-    </Seo>
-  )
+  handleClick = lang => {
+    localStorage.setItem('lang', JSON.stringify(lang))
+    this.setState({ lang })
+  }
+
+  render() {
+    const { lang } = this.state
+
+    return (
+      <Seo>
+        <Header navigation={intl.home[lang].navigation} onClick={this.handleClick} />
+        <Content>
+          <Hgroup>
+            <Intro>{intl.home[lang].intro}</Intro>
+            <SubTitle>{intl.home[lang].sub}</SubTitle>
+          </Hgroup>
+        </Content>
+        <Footer center contacts={contacts} />
+      </Seo>
+    )
+  }
 }
-
 
 export default IndexPage
