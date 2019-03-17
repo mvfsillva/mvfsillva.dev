@@ -71,7 +71,8 @@
     "globals": [
       "expect",
       "it",
-      "describe"
+      "describe",
+      "localStorage"
     ]
   },
   "lint-staged": {
