@@ -6,6 +6,7 @@ import { theme } from 'styled-tools'
 
 import Lion from '../icons/lion'
 
+import Locale from './locale'
 import Navbar from './navbar'
 
 const Wrapper = styled.header`
@@ -20,23 +21,19 @@ const Container = styled.div`
   margin-right: ${theme('spacing.medium.xxLarge')};
   margin-left: ${theme('spacing.medium.xxLarge')};
 
-  @media ${theme('responsive.phone')} {
-    justify-content: center;
-
-    svg {
-      width: 100px;
-      height: 110px;
-    }
+  a {
+    z-index: ${theme('zindex.fixed')};
   }
 `
 
-const Header = ({ navigation, back, reverse }) => (
+const Header = ({ navigation, back, reverse, onClick }) => (
   <Wrapper>
     <Container>
       <Link to="/">
         <Lion reverse={reverse} width={50} height={60} />
       </Link>
       <Navbar navigation={navigation} back={back} reverse={reverse} />
+      <Locale reverse={reverse} onClick={onClick} />
     </Container>
   </Wrapper>
 )
@@ -49,6 +46,7 @@ Header.defaultProps = {
 
 Header.propTypes = {
   navigation: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClick: PropTypes.func.isRequired,
   back: PropTypes.bool,
   reverse: PropTypes.bool,
 }
