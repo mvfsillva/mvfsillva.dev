@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { theme } from 'styled-tools'
@@ -21,18 +22,35 @@ const Container = styled.div`
 
   @media ${theme('responsive.phone')} {
     justify-content: center;
+
+    svg {
+      width: 100px;
+      height: 110px;
+    }
   }
 `
 
-const Hero = () => (
+const Header = ({ navigation, back, reverse }) => (
   <Wrapper>
     <Container>
       <Link to="/">
-        <Lion width={50} height={60} />
+        <Lion reverse={reverse} width={50} height={60} />
       </Link>
-      <Navbar navigation={['about']} />
+      <Navbar navigation={navigation} back={back} reverse={reverse} />
     </Container>
   </Wrapper>
 )
 
-export default Hero
+Header.defaultProps = {
+  navigation: [],
+  back: false,
+  reverse: false,
+}
+
+Header.propTypes = {
+  navigation: PropTypes.arrayOf(PropTypes.string).isRequired,
+  back: PropTypes.bool,
+  reverse: PropTypes.bool,
+}
+
+export default Header
