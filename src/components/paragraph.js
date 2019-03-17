@@ -4,7 +4,8 @@ import { theme } from 'styled-tools'
 const Paragraph = styled.p`
   ${theme('typography.paragraph')};
   color: ${theme('palette.black')};
-  padding: ${theme('spacing')};
+  margin-top: ${theme('spacing.medium')};
+  margin-bottom: ${theme('spacing.medium')};
 `
 
 export default Paragraph
