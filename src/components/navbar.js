@@ -8,6 +8,7 @@ import { theme, ifProp } from 'styled-tools'
 
 import { transition } from '../mixins/transition'
 
+import setRouting from '../helpers/set-routing'
 import If from '../utils/if'
 
 const Nav = styled.nav`
@@ -15,7 +16,7 @@ const Nav = styled.nav`
   list-style: none;
   justify-content: center;
   align-items: center;
-  z-index: ${theme('zindex.sticky')};
+  z-index: ${theme('zindex.fixed')};
   a {
     ${theme('typography.link')};
     color: ${ifProp('reverse', theme('palette.white'), theme('palette.black'))};
@@ -38,9 +39,9 @@ const Navbar = ({ navigation, back, reverse }) => (
     <If test={back}>
       <Link to="/">Home</Link>
     </If>
-    {navigation.map(url => (
-      <Link key={shortid.generate()} to={`/${url}`}>
-        {url}
+    {navigation.map(router => (
+      <Link key={shortid.generate()} to={`/${setRouting(router).url}`}>
+        {setRouting(router).text}
       </Link>
     ))}
   </Nav>
