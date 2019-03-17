@@ -5,7 +5,7 @@ import Seo from '../layouts/seo'
 
 import Content from '../styles/content'
 
-import Hero from '../components/hero'
+import Header from '../components/Header'
 import Footer from '../components/footer'
 
 import contacts from '../helpers/contacts'
@@ -31,7 +31,7 @@ const IndexPage = () => {
 
   return (
     <Seo>
-      <Hero />
+      <Header navigation={['about', 'projects', 'articles']}/>
       <Content>
         <Hgroup>
           <Intro>Hi, I'm Marcus</Intro>
