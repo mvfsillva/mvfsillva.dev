@@ -32,7 +32,7 @@ const Flag = styled.div`
 const Locale = ({ reverse, onClick }) => {
   return (
     <Flag>
-      <Button onClick={() => onClick('ptbr')} type="button">
+      <Button onClick={() => onClick('pt-br')} type="button">
         <BrazilFlag reverse={reverse} size={24} />
       </Button>
       <Button onClick={() => onClick('en')} type="button">
