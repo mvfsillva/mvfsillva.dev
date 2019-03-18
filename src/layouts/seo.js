@@ -11,7 +11,7 @@ import FullContainer from '../styles/full-container'
 
 import lion from '../static/images/lion.png'
 
-const Seo = ({ title, children }) => (
+const Seo = ({ title, lang, children }) => (
   <PageTransition>
     <StaticQuery
       query={graphql`
@@ -29,7 +29,7 @@ const Seo = ({ title, children }) => (
       render={({ site }) => (
         <ThemeProvider theme={theme}>
           <FullContainer>
-            <Helmet title={title || site.siteMetadata.title}>
+            <Helmet title={title || site.siteMetadata.title} htmlAttributes={{ lang }}>
               <meta name="twitter:card" content="summary_large_image" />
               <meta name="twitter:card" content="summary" />
               <meta name="twitter:image" content={lion} />
@@ -51,8 +51,13 @@ const Seo = ({ title, children }) => (
   </PageTransition>
 )
 
+Seo.defaultProps = {
+  lang: 'en'
+}
+
 Seo.propTypes = {
   title: PropTypes.string,
+  lang: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
 
