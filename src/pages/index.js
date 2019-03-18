@@ -45,11 +45,12 @@ class IndexPage extends Component {
     const { lang } = this.state
 
     return (
-      <Seo>
+      <Seo lang={lang}>
         <Header navigation={intl.home[lang].navigation} onClick={this.handleClick} />
+
         <Content>
           <Hgroup>
-            <Intro>{intl.home[lang].intro}</Intro>
+            <Intro>{intl.general[lang].intro}</Intro>
             <SubTitle>{intl.home[lang].sub}</SubTitle>
           </Hgroup>
         </Content>
