@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { theme } from 'styled-tools'
 
@@ -8,6 +8,7 @@ import Footer from '../components/footer'
 import Header from '../components/header'
 
 import contacts from '../helpers/contacts'
+import intl from '../helpers/intl'
 
 import mvfsillva from '../static/images/mvfsillva-usa.jpg'
 
@@ -48,46 +49,53 @@ const Title = styled.h1`
   text-align: left;
 `
 
-const About = () => {
+class About extends PureComponent {
+  state = {
+    lang: 'pt-br'
+  }
 
-  return (
-    <Seo title="mvfsillva - about">
-      <Hero>
-        <Header navigation={['projects', 'articles']} back reverse />
-      </Hero>
-      <Main>
-        <Title>Hi, I'm Marcus Silva</Title>
-        <Paragraph>
-          Mussum Ipsum, cacilds vidis litro abertis.
-          In elementis mé pra quem é amistosis quis leo.
-          Paisis, filhis, espiritis santis.
-          Todo mundo vê os porris que eu tomo,
-          mas ninguém vê os tombis que eu levo!
-          Copo furadis é disculpa de bebadis, arcu quam euismod magna.
-        </Paragraph>
-        <Paragraph>
-          Mussum Ipsum, cacilds vidis litro abertis.
-          In elementis mé pra quem é amistosis quis leo.
-          Paisis, filhis, espiritis santis.
-          Todo mundo vê os porris que eu tomo,
-          mas ninguém vê os tombis que eu levo!
-          Copo furadis é disculpa de bebadis, arcu quam euismod magna.
-        </Paragraph>
-        <Paragraph>
-          Mussum Ipsum, cacilds vidis litro abertis.
-          In elementis mé pra quem é amistosis quis leo.
-          Paisis, filhis, espiritis santis.
-          Todo mundo vê os porris que eu tomo,
-          mas ninguém vê os tombis que eu levo!
-          Copo furadis é disculpa de bebadis, arcu quam euismod magna.
-        </Paragraph>
-        <Paragraph>
-          If you want to know more about me or get in touch:
-          <Footer contacts={contacts} />
-        </Paragraph>
-      </Main>
-    </Seo>
-  )
+  render () {
+    const { lang } = this.state
+
+    return (
+      <Seo title="mvfsillva - about">
+        <Hero>
+          <Header navigation={intl.about[lang].navigation} back reverse />
+        </Hero>
+        <Main>
+          <Title>{intl.general[lang].intro}</Title>
+          <Paragraph>
+            Mussum Ipsum, cacilds vidis litro abertis.
+            In elementis mé pra quem é amistosis quis leo.
+            Paisis, filhis, espiritis santis.
+            Todo mundo vê os porris que eu tomo,
+            mas ninguém vê os tombis que eu levo!
+            Copo furadis é disculpa de bebadis, arcu quam euismod magna.
+          </Paragraph>
+          <Paragraph>
+            Mussum Ipsum, cacilds vidis litro abertis.
+            In elementis mé pra quem é amistosis quis leo.
+            Paisis, filhis, espiritis santis.
+            Todo mundo vê os porris que eu tomo,
+            mas ninguém vê os tombis que eu levo!
+            Copo furadis é disculpa de bebadis, arcu quam euismod magna.
+          </Paragraph>
+          <Paragraph>
+            Mussum Ipsum, cacilds vidis litro abertis.
+            In elementis mé pra quem é amistosis quis leo.
+            Paisis, filhis, espiritis santis.
+            Todo mundo vê os porris que eu tomo,
+            mas ninguém vê os tombis que eu levo!
+            Copo furadis é disculpa de bebadis, arcu quam euismod magna.
+          </Paragraph>
+          <Paragraph>
+            {intl.about[lang].contacts}:
+            <Footer contacts={contacts} />
+          </Paragraph>
+        </Main>
+      </Seo>
+    )
+  }
 }
 
 export default About
