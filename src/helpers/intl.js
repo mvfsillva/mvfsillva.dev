@@ -1,14 +1,30 @@
 const intl = {
+  general: {
+    'pt-br': {
+      intro: 'Olá, Sou o Marcus',
+    },
+    en: {
+      intro: "Hi, I'm Marcus",
+    },
+  },
   home: {
-    ptbr: {
-      intro: 'Olá, Sou Marcus',
+    'pt-br': {
       sub: 'Desenvolvedor Front-End',
       navigation: ['sobre', 'projetos', 'artigos'],
     },
     en: {
-      intro: "Hi, I'm Marcus",
       sub: 'Front-End Developer',
       navigation: ['about', 'projects', 'articles'],
+    },
+  },
+  about: {
+    'pt-br': {
+      navigation: ['projetos', 'artigos'],
+      contacts: 'Se você quiser saber mais sobre mim ou entrar em contato',
+    },
+    en: {
+      navigation: ['projects', 'articles'],
+      contacts: 'If you want to know more about me or get in touch',
     },
   },
 }
