@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { theme } from 'styled-tools'
 
-import Seo from '../layouts/seo'
 import Paragraph from '../components/paragraph'
 import Footer from '../components/footer'
 import Header from '../components/header'
@@ -24,11 +23,11 @@ const Hero = styled.div`
     position: absolute;
     width: 100%;
     height: 60vh;
-    opacity: .5;
+    opacity: 0.5;
     background-image: url(${mvfsillva});
     background-position: center center;
-    background-repeat:  no-repeat;
-    background-size:  cover;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   @media ${theme('responsive.phone')} {
@@ -51,49 +50,40 @@ const Title = styled.h1`
 
 class About extends PureComponent {
   state = {
-    lang: 'pt-br'
+    lang: 'pt-br',
   }
 
-  render () {
+  render() {
     const { lang } = this.state
 
     return (
-      <Seo title="mvfsillva - about">
+      <>
         <Hero>
           <Header navigation={intl.about[lang].navigation} back reverse />
         </Hero>
         <Main>
           <Title>{intl.general[lang].intro}</Title>
           <Paragraph>
-            Mussum Ipsum, cacilds vidis litro abertis.
-            In elementis mé pra quem é amistosis quis leo.
-            Paisis, filhis, espiritis santis.
-            Todo mundo vê os porris que eu tomo,
-            mas ninguém vê os tombis que eu levo!
-            Copo furadis é disculpa de bebadis, arcu quam euismod magna.
+            Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis
+            leo. Paisis, filhis, espiritis santis. Todo mundo vê os porris que eu tomo, mas ninguém
+            vê os tombis que eu levo! Copo furadis é disculpa de bebadis, arcu quam euismod magna.
           </Paragraph>
           <Paragraph>
-            Mussum Ipsum, cacilds vidis litro abertis.
-            In elementis mé pra quem é amistosis quis leo.
-            Paisis, filhis, espiritis santis.
-            Todo mundo vê os porris que eu tomo,
-            mas ninguém vê os tombis que eu levo!
-            Copo furadis é disculpa de bebadis, arcu quam euismod magna.
+            Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis
+            leo. Paisis, filhis, espiritis santis. Todo mundo vê os porris que eu tomo, mas ninguém
+            vê os tombis que eu levo! Copo furadis é disculpa de bebadis, arcu quam euismod magna.
           </Paragraph>
           <Paragraph>
-            Mussum Ipsum, cacilds vidis litro abertis.
-            In elementis mé pra quem é amistosis quis leo.
-            Paisis, filhis, espiritis santis.
-            Todo mundo vê os porris que eu tomo,
-            mas ninguém vê os tombis que eu levo!
-            Copo furadis é disculpa de bebadis, arcu quam euismod magna.
+            Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis
+            leo. Paisis, filhis, espiritis santis. Todo mundo vê os porris que eu tomo, mas ninguém
+            vê os tombis que eu levo! Copo furadis é disculpa de bebadis, arcu quam euismod magna.
           </Paragraph>
           <Paragraph>
             {intl.about[lang].contacts}:
             <Footer contacts={contacts} />
           </Paragraph>
         </Main>
-      </Seo>
+      </>
     )
   }
 }

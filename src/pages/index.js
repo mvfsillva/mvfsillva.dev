@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Seo from '../layouts/seo'
-
 import Content from '../styles/content'
 
-import Header from '../components/Header'
+import Header from '../components/header'
 import Footer from '../components/footer'
 
 import contacts from '../helpers/contacts'
@@ -45,7 +43,7 @@ class IndexPage extends Component {
     const { lang } = this.state
 
     return (
-      <Seo lang={lang}>
+      <>
         <Header navigation={intl.home[lang].navigation} onClick={this.handleClick} />
 
         <Content>
@@ -55,7 +53,7 @@ class IndexPage extends Component {
           </Hgroup>
         </Content>
         <Footer center contacts={contacts} />
-      </Seo>
+      </>
     )
   }
 }
