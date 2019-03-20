@@ -31,6 +31,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-136626463-1",
+        head: true,
+        anonymize: false,
+        respectDNT: true
+      },
+    },
+    {
       resolve: 'gatsby-plugin-page-transitions',
       options: {
         transitionTime: 350
