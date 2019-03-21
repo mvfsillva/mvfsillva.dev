@@ -95,7 +95,7 @@ theme.typography = {
   },
   link: {
     fontSize: '12px',
-    fontWeight: '600',
+    fontWeight: '700',
     textTransform: 'uppercase',
     lineHeight: '30px',
     letterSpacing: '5px',
