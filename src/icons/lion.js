@@ -4,6 +4,7 @@ import { invert } from 'polished'
 
 const Lion = ({ color, reverse, width, height }) => (
   <svg width={width} height={height} viewBox="0 0 435 479">
+    <title>Lion</title>
     <g>
       <path
         fill={reverse ? invert(color) : color}
