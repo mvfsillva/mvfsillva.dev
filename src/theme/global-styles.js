@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: Open Sans, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 16px;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     &::after,
