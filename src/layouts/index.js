@@ -11,7 +11,9 @@ import Transition from '../components/transition'
 
 import lion from '../static/images/lion.png'
 
-const Layout = ({ lang, children, location }) => {
+import pkg from '../../package.json'
+
+const Layout = ({ children, location, lang }) => {
   const { pathname } = location
   const customSiteTitle = pathname !== '/' && `mvfsillva - ${pathname.replace('/', '')}`
 
@@ -34,6 +36,9 @@ const Layout = ({ lang, children, location }) => {
           <ThemeProvider theme={theme}>
             <FullContainer>
               <Helmet title={customSiteTitle || site.siteMetadata.title} htmlAttributes={{ lang }}>
+                <meta name="description" content={pkg.description} />
+                <meta name="keywords" content={pkg.keywords} />
+
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:image" content={lion} />
@@ -41,10 +46,6 @@ const Layout = ({ lang, children, location }) => {
                 <meta name="twitter:creator" content={site.siteMetadata.author} />
                 <meta name="twitter:title" content={customSiteTitle || site.siteMetadata.title} />
                 <meta name="twitter:description" content={site.siteMetadata.description} />
-                <link
-                  href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
-                  rel="stylesheet"
-                />
               </Helmet>
               <GlobalStyles />
               {children}
