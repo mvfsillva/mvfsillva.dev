@@ -6,6 +6,8 @@ import { theme } from 'styled-tools'
 
 import Lion from '../icons/lion'
 
+import Hidden from '../styles/hidden'
+
 import Locale from './locale'
 import Navbar from './navbar'
 
@@ -26,14 +28,15 @@ const Container = styled.div`
   }
 `
 
-const Header = ({ navigation, back, reverse, onClick }) => (
+const Header = ({ navigation, back, reverse, onChange }) => (
   <Wrapper>
     <Container>
       <Link to="/">
+        <Hidden>Lion</Hidden>
         <Lion reverse={reverse} width={50} height={60} />
       </Link>
       <Navbar navigation={navigation} back={back} reverse={reverse} />
-      <Locale reverse={reverse} onClick={onClick} />
+      <Locale reverse={reverse} onChange={onChange} />
     </Container>
   </Wrapper>
 )
@@ -46,7 +49,7 @@ Header.defaultProps = {
 
 Header.propTypes = {
   navigation: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onClick: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   back: PropTypes.bool,
   reverse: PropTypes.bool,
 }

@@ -9,6 +9,8 @@ import { transition } from '../mixins/transition'
 import BrazilFlag from '../icons/brazil-flag'
 import UsaFlag from '../icons/usa-flag'
 
+import Hidden from '../styles/hidden'
+
 const Button = styled.button`
   border: 1px solid transparent;
   background-color: transparent;
@@ -17,8 +19,8 @@ const Button = styled.button`
   display: inline-block;
   svg {
     ${transitions(transition({ property: 'fill', duration: '250ms' }))};
-    &:hover #ptBr,
-    &:hover #en {
+    &:hover .ptBr,
+    &:hover .en {
       fill: ${({ theme }) => transparentize(0.5, `${theme.palette.black}`)};
       ${transitions(transition({ property: 'fill', duration: '250ms' }))};
     }
@@ -29,13 +31,20 @@ const Flag = styled.div`
   z-index: ${theme('zindex.fixed')};
 `
 
-const Locale = ({ reverse, onClick }) => {
+const Locale = ({ reverse, onChange }) => {
+  const handleChangeLanguage = lang => {
+    localStorage.setItem('language', lang)
+    onChange(lang)
+  }
+
   return (
     <Flag>
-      <Button onClick={() => onClick('pt-br')} type="button">
+      <Button onClick={() => handleChangeLanguage('pt-br')} type="button">
+        <Hidden>Português Brasileiro</Hidden>
         <BrazilFlag reverse={reverse} size={24} />
       </Button>
-      <Button onClick={() => onClick('en')} type="button">
+      <Button onClick={() => handleChangeLanguage('en')} type="button">
+        <Hidden>English</Hidden>
         <UsaFlag reverse={reverse} size={24} />
       </Button>
     </Flag>
@@ -44,11 +53,12 @@ const Locale = ({ reverse, onClick }) => {
 
 Locale.defaultProps = {
   reverse: false,
+  onChange: () => {},
 }
 
 Locale.propTypes = {
   reverse: PropTypes.bool,
-  onClick: PropTypes.func,
+  onChange: PropTypes.func,
 }
 
 export default Locale
