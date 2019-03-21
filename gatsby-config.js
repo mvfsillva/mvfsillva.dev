@@ -8,6 +8,9 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-twitter',
+    'gatsby-plugin-layout',
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -15,9 +18,14 @@ module.exports = {
         path: `${__dirname}/src/static`,
       },
     },
-    'gatsby-plugin-layout',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://mvfsillva.dev',
+        sitemap: 'https://mvfsillva.dev/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
