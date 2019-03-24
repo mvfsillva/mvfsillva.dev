@@ -36,7 +36,7 @@ module.exports = {
         theme_color: '#FFFFFF',
         display: 'fullscreen',
         orientation: 'portrait',
-        icon: 'src/static/images/cirle-lion.png',
+        icon: 'src/static/images/circle-lion.png',
       },
     },
     {
