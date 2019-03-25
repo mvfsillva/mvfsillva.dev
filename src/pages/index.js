@@ -27,15 +27,16 @@ const Hgroup = styled.hgroup`
 `
 
 class IndexPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      lang: 'en',
-    }
+  state = {
+    lang: 'en',
   }
 
-  handleClick = lang => {
-    localStorage.setItem('lang', JSON.stringify(lang))
+  componentDidMount() {
+    const lang = localStorage.getItem('language')
+    this.setState({ lang })
+  }
+
+  handleChange = lang => {
     this.setState({ lang })
   }
 
@@ -44,7 +45,7 @@ class IndexPage extends Component {
 
     return (
       <>
-        <Header navigation={intl.home[lang].navigation} onClick={this.handleClick} />
+        <Header navigation={intl.home[lang].navigation} onChange={this.handleChange} />
 
         <Content>
           <Hgroup>

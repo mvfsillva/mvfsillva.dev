@@ -50,7 +50,16 @@ const Title = styled.h1`
 
 class About extends PureComponent {
   state = {
-    lang: 'pt-br',
+    lang: 'en',
+  }
+
+  componentDidMount() {
+    const lang = localStorage.getItem('language')
+    this.setState({ lang })
+  }
+
+  handleChange = lang => {
+    this.setState({ lang })
   }
 
   render() {
@@ -59,7 +68,12 @@ class About extends PureComponent {
     return (
       <>
         <Hero>
-          <Header navigation={intl.about[lang].navigation} back reverse />
+          <Header
+            navigation={intl.about[lang].navigation}
+            onChange={this.handleChange}
+            back
+            reverse
+          />
         </Hero>
         <Main>
           <Title>{intl.general[lang].intro}</Title>
