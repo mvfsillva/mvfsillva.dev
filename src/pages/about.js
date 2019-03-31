@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { theme } from 'styled-tools'
+import shortid from 'shortid'
 
 import Paragraph from '../components/paragraph'
 import Footer from '../components/footer'
@@ -48,6 +49,18 @@ const Title = styled.h1`
   text-align: left;
 `
 
+const List = styled.ul`
+  margin: ${theme('spacing.large')};
+  li {
+    font-weight: 300;
+  }
+`
+
+const Bold = styled.span`
+  font-weight: 400;
+  margin-top: ${theme('spacing.large')};
+`
+
 class About extends PureComponent {
   state = {
     lang: 'en',
@@ -77,23 +90,19 @@ class About extends PureComponent {
         </Hero>
         <Main>
           <Title>{intl.general[lang].intro}</Title>
+          {intl.about[lang].description.map(p => (
+            <Paragraph key={shortid.generate()}>{p}</Paragraph>
+          ))}
+
+          <Bold>{intl.about[lang].beyond.title}</Bold>
+          <List>
+            {intl.about[lang].beyond.list.map(l => (
+              <li key={shortid.generate()}>{l}</li>
+            ))}
+          </List>
+
+          <Bold>{intl.about[lang].contacts}:</Bold>
           <Paragraph>
-            Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis
-            leo. Paisis, filhis, espiritis santis. Todo mundo vê os porris que eu tomo, mas ninguém
-            vê os tombis que eu levo! Copo furadis é disculpa de bebadis, arcu quam euismod magna.
-          </Paragraph>
-          <Paragraph>
-            Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis
-            leo. Paisis, filhis, espiritis santis. Todo mundo vê os porris que eu tomo, mas ninguém
-            vê os tombis que eu levo! Copo furadis é disculpa de bebadis, arcu quam euismod magna.
-          </Paragraph>
-          <Paragraph>
-            Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis
-            leo. Paisis, filhis, espiritis santis. Todo mundo vê os porris que eu tomo, mas ninguém
-            vê os tombis que eu levo! Copo furadis é disculpa de bebadis, arcu quam euismod magna.
-          </Paragraph>
-          <Paragraph>
-            {intl.about[lang].contacts}:
             <Footer contacts={contacts} />
           </Paragraph>
         </Main>
