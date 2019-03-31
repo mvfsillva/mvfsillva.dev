@@ -32,12 +32,17 @@ class IndexPage extends Component {
   }
 
   componentDidMount() {
-    const lang = localStorage.getItem('language')
+    const lang = this.getLanguage()
     this.setState({ lang })
   }
 
-  handleChange = lang => {
-    this.setState({ lang })
+  handleChangeLanguage = lang => this.setState({ lang })
+
+  getLanguage = () => {
+    const { lang } = this.state
+    const language = localStorage.getItem('language') || lang
+
+    return language
   }
 
   render() {
@@ -45,8 +50,7 @@ class IndexPage extends Component {
 
     return (
       <>
-        <Header navigation={intl.home[lang].navigation} onChange={this.handleChange} />
-
+        <Header navigation={intl.home[lang].navigation} onChange={this.handleChangeLanguage} />
         <Content>
           <Hgroup>
             <Intro>{intl.general[lang].intro}</Intro>

@@ -67,12 +67,17 @@ class About extends PureComponent {
   }
 
   componentDidMount() {
-    const lang = localStorage.getItem('language')
+    const lang = this.getLanguage()
     this.setState({ lang })
   }
 
-  handleChange = lang => {
-    this.setState({ lang })
+  handleChangeLanguage = lang => this.setState({ lang })
+
+  getLanguage = () => {
+    const { lang } = this.state
+    const language = localStorage.getItem('language') || lang
+
+    return language
   }
 
   render() {
@@ -83,7 +88,7 @@ class About extends PureComponent {
         <Hero>
           <Header
             navigation={intl.about[lang].navigation}
-            onChange={this.handleChange}
+            onChange={this.handleChangeLanguage}
             back
             reverse
           />
