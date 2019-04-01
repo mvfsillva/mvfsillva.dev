@@ -27,30 +27,13 @@ const Hgroup = styled.hgroup`
 `
 
 class IndexPage extends Component {
-  state = {
-    lang: 'en',
-  }
-
-  componentDidMount() {
-    const lang = this.getLanguage()
-    this.setState({ lang })
-  }
-
-  handleChangeLanguage = lang => this.setState({ lang })
-
-  getLanguage = () => {
-    const { lang } = this.state
-    const language = localStorage.getItem('language') || lang
-
-    return language
-  }
 
   render() {
-    const { lang } = this.state
+    const { lang, setLanguage } = this.props
 
     return (
       <>
-        <Header navigation={intl.home[lang].navigation} onChange={this.handleChangeLanguage} />
+        <Header navigation={intl.home[lang].navigation} setLanguage={setLanguage} />
         <Content>
           <Hgroup>
             <Intro>{intl.general[lang].intro}</Intro>

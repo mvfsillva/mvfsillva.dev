@@ -62,26 +62,9 @@ const Bold = styled.span`
 `
 
 class About extends PureComponent {
-  state = {
-    lang: 'en',
-  }
-
-  componentDidMount() {
-    const lang = this.getLanguage()
-    this.setState({ lang })
-  }
-
-  handleChangeLanguage = lang => this.setState({ lang })
-
-  getLanguage = () => {
-    const { lang } = this.state
-    const language = localStorage.getItem('language') || lang
-
-    return language
-  }
 
   render() {
-    const { lang } = this.state
+    const { lang, setLanguage } = this.props
 
     return (
       <>
@@ -91,6 +74,7 @@ class About extends PureComponent {
             onChange={this.handleChangeLanguage}
             back
             reverse
+            setLanguage={setLanguage}
           />
         </Hero>
         <Main>
