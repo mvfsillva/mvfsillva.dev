@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
@@ -23,7 +23,7 @@ const Layout = ({ children, location }) => {
     return setLang(lang)
   }
 
-  const childrenWithSetLanguage = React.Children.map(children, child => React.cloneElement(child, { lang, setLanguage }))
+  const childrenWithSetLanguage = Children.map(children, child => cloneElement(child, { lang, setLanguage }))
 
   return (
     <Transition location={location}>
@@ -66,7 +66,7 @@ const Layout = ({ children, location }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  location: PropTypes.any,
+  location: PropTypes.object,
 }
 
 export default Layout
