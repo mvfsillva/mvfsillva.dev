@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'styled-tools'
 import shortid from 'shortid'
@@ -54,14 +55,18 @@ const List = styled.ul`
   li {
     font-weight: 300;
   }
-`
+`
 
 const Bold = styled.span`
-  font-weight: 400;
+  font-weight: 400;
   margin-top: ${theme('spacing.large')};
 `
 
 class About extends PureComponent {
+  static propTypes = {
+    lang: PropTypes.string,
+    setLanguage: PropTypes.func
+  }
 
   render() {
     const { lang, setLanguage } = this.props

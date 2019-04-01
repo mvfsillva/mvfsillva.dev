@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Content from '../styles/content'
@@ -26,7 +27,11 @@ const Hgroup = styled.hgroup`
   flex-direction: column;
 `
 
-class IndexPage extends Component {
+class IndexPage extends PureComponent {
+  static propTypes = {
+    lang: PropTypes.string,
+    setLanguage: PropTypes.func
+  }
 
   render() {
     const { lang, setLanguage } = this.props
