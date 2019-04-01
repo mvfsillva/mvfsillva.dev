@@ -28,7 +28,7 @@ const Container = styled.div`
   }
 `
 
-const Header = ({ navigation, back, reverse, onChange }) => (
+const Header = ({ navigation, back, reverse, setLanguage }) => (
   <Wrapper>
     <Container>
       <Link to="/">
@@ -36,7 +36,7 @@ const Header = ({ navigation, back, reverse, onChange }) => (
         <Lion reverse={reverse} width={50} height={60} />
       </Link>
       <Navbar navigation={navigation} back={back} reverse={reverse} />
-      <Locale reverse={reverse} onChange={onChange} />
+      <Locale reverse={reverse} setLanguage={setLanguage} />
     </Container>
   </Wrapper>
 )
@@ -49,9 +49,9 @@ Header.defaultProps = {
 
 Header.propTypes = {
   navigation: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onChange: PropTypes.func.isRequired,
   back: PropTypes.bool,
   reverse: PropTypes.bool,
+  setLanguage: PropTypes.func.isRequired,
 }
 
 export default Header
