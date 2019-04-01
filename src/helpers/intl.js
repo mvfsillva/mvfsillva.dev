@@ -39,17 +39,17 @@ const intl = {
       navigation: ['projects'],
       contacts: 'If you want to know more about me or get in touch',
       description: [
-        'Born in Salvador/BA, I grew up in the neighborhood of Mata Escura, currently showing all Bahia dendê oil in São Paulo/SP, and I have been working as senior front-end developer on IDwall.',
-        "I've worked on places as SENAI CIMATEC, 99 Táxis, Nextel (currently Claro), and some others. I'm a degree in software development and also analysis and systems development by SENAI.",
+        'Born in Salvador/BA, I grew up in the neighborhood of Mata Escura, currently showing all Bahia dendê oil in São Paulo/SP. I currently work as a senior front-end developer at IDwall.',
+        "I've worked on places like SENAI CIMATEC, 99 Táxis, Nextel (currently Claro), and some others. I have a degree in software development and also in systems analysis and development by SENAI.",
         'My main focus throughout my career has been web technologies and I love work with challenging and creative projects.',
       ],
       beyond: {
         title: "I'm not only about programming:",
         list: [
-          "I'm a curious student of history",
-          'Passionate about carnival (the one from Salvador of course!!)',
-          'Dancer on my free time',
-          'That one leaves with friends because nobody is of iron.',
+          "I'm a curious student of history.",
+          'Passionate about carnival (the one from Salvador of course!!)',
+          'Dancer on my free time',
+          'Also hang out with friends because nobody is of iron',
         ],
       },
     },
