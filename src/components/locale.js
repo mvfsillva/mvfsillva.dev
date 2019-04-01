@@ -31,34 +31,27 @@ const Flag = styled.div`
   z-index: ${theme('zindex.fixed')};
 `
 
-const Locale = ({ reverse, onChange }) => {
-  const handleChangeLanguage = lang => {
-    localStorage.setItem('language', lang)
-    onChange(lang)
-  }
-
-  return (
-    <Flag>
-      <Button onClick={() => handleChangeLanguage('pt-br')} type="button">
-        <Hidden>Português Brasileiro</Hidden>
-        <BrazilFlag reverse={reverse} size={24} />
-      </Button>
-      <Button onClick={() => handleChangeLanguage('en')} type="button">
-        <Hidden>English</Hidden>
-        <UsaFlag reverse={reverse} size={24} />
-      </Button>
-    </Flag>
-  )
-}
+const Locale = ({ reverse, setLanguage }) => (
+  <Flag>
+    <Button onClick={() => setLanguage('pt-br')} type="button">
+      <Hidden>Português Brasileiro</Hidden>
+      <BrazilFlag reverse={reverse} size={24} />
+    </Button>
+    <Button onClick={() => setLanguage('en')} type="button">
+      <Hidden>English</Hidden>
+      <UsaFlag reverse={reverse} size={24} />
+    </Button>
+  </Flag>
+)
 
 Locale.defaultProps = {
   reverse: false,
-  onChange: () => {},
+  setLanguage: () => {},
 }
 
 Locale.propTypes = {
   reverse: PropTypes.bool,
-  onChange: PropTypes.func,
+  setLanguage: PropTypes.func,
 }
 
 export default Locale
