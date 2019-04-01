@@ -24,6 +24,7 @@ const intl = {
       description: [
         'Natural de Salvador/BA, cresci no bairro da Mata Escura, atualmente mostro todo dendê da Bahia em São Paulo/SP, e trabalho como desenvolvedor sênior Front-end na IDwall.',
         'Já trabalhei em lugares como SENAI CIMATEC, 99 Táxis, Nextel (atualmente Claro) e algumas outras. Sou formado em desenvolvimento de sistemas, e também em Analise e desenvolvimento de sistemas pelo SENAI.',
+        'Ao longo da minha carreira meu principal foco tem sido tecnologias web, e sou apaixonado por trabalhar com projetos desafiadores e criativos.',
       ],
       beyond: {
         title: 'Não apenas de programação vive um mortal:',
