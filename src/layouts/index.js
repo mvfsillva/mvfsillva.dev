@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
@@ -13,9 +13,17 @@ import lion from '../static/images/lion.png'
 
 import pkg from '../../package.json'
 
-const Layout = ({ children, location, lang }) => {
+const Layout = ({ children, location }) => {
   const { pathname } = location
   const customSiteTitle = pathname !== '/' && `mvfsillva - ${pathname.replace('/', '')}`
+  const [lang, setLang] = useState(localStorage.getItem('language') || 'en')
+
+  const setLanguage = lang => {
+    localStorage.setItem('language', lang)
+    return setLang(lang)
+  }
+
+  const childrenWithSetLanguage = React.Children.map(children, child => React.cloneElement(child, { lang, setLanguage }))
 
   return (
     <Transition location={location}>
@@ -38,7 +46,6 @@ const Layout = ({ children, location, lang }) => {
               <Helmet title={customSiteTitle || site.siteMetadata.title} htmlAttributes={{ lang }}>
                 <meta name="description" content={pkg.description} />
                 <meta name="keywords" content={pkg.keywords} />
-
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:image" content={lion} />
@@ -48,7 +55,7 @@ const Layout = ({ children, location, lang }) => {
                 <meta name="twitter:description" content={site.siteMetadata.description} />
               </Helmet>
               <GlobalStyles />
-              {children}
+              {childrenWithSetLanguage}
             </FullContainer>
           </ThemeProvider>
         )}
@@ -57,12 +64,7 @@ const Layout = ({ children, location, lang }) => {
   )
 }
 
-Layout.defaultProps = {
-  lang: 'en',
-}
-
 Layout.propTypes = {
-  lang: PropTypes.string,
   children: PropTypes.node.isRequired,
   location: PropTypes.any,
 }
