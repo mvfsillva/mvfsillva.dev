@@ -1,4 +1,4 @@
-import React, { useState, Children, cloneElement } from 'react'
+import React, { Component, Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
@@ -13,60 +13,71 @@ import lion from '../static/images/lion.png'
 
 import pkg from '../../package.json'
 
-const Layout = ({ children, location }) => {
-  const { pathname } = location
-  const customSiteTitle = pathname !== '/' && `mvfsillva - ${pathname.replace('/', '')}`
-  const [lang, setLang] = useState(localStorage.getItem('language') || 'en')
+  class Layout extends Component {
+    state = {
+      lang: 'en'
+    }
 
-  const setLanguage = lang => {
-    localStorage.setItem('language', lang)
-    return setLang(lang)
-  }
+    static propTypes = {
+      children: PropTypes.node.isRequired,
+      location: PropTypes.object,
+    }
 
-  const childrenWithSetLanguage = Children.map(children, child => cloneElement(child, { lang, setLanguage }))
+    componentDidMount() {
+      const lang = localStorage.getItem('language') || 'en'
+      this.setState({ lang })
+    }
 
-  return (
-    <Transition location={location}>
-      <StaticQuery
-        query={graphql`
-          query SiteTitleQuery {
-            site {
-              siteMetadata {
-                title
-                siteUrl
-                description
-                author
+    render () {
+      const { lang } = this.state
+      const { children, location } = this.props
+      const { pathname } = location
+      const customSiteTitle = pathname !== '/' && `mvfsillva - ${pathname.replace('/', '')}`
+      const setLanguage = lang => {
+        localStorage.setItem('language', lang)
+        this.setState({ lang })
+      }
+
+      const childrenWithSetLanguage = Children.map(children, child => cloneElement(child, { lang, setLanguage }))
+
+      return (
+        <Transition location={location}>
+          <StaticQuery
+            query={graphql`
+              query SiteTitleQuery {
+                site {
+                  siteMetadata {
+                    title
+                    siteUrl
+                    description
+                    author
+                  }
+                }
               }
-            }
-          }
-        `}
-        render={({ site }) => (
-          <ThemeProvider theme={theme}>
-            <FullContainer>
-              <Helmet title={customSiteTitle || site.siteMetadata.title} htmlAttributes={{ lang }}>
-                <meta name="description" content={pkg.description} />
-                <meta name="keywords" content={pkg.keywords} />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:card" content="summary" />
-                <meta name="twitter:image" content={lion} />
-                <meta name="twitter:site" content={site.siteMetadata.author} />
-                <meta name="twitter:creator" content={site.siteMetadata.author} />
-                <meta name="twitter:title" content={customSiteTitle || site.siteMetadata.title} />
-                <meta name="twitter:description" content={site.siteMetadata.description} />
-              </Helmet>
-              <GlobalStyles />
-              {childrenWithSetLanguage}
-            </FullContainer>
-          </ThemeProvider>
-        )}
-      />
-    </Transition>
-  )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  location: PropTypes.object,
+            `}
+            render={({ site }) => (
+              <ThemeProvider theme={theme}>
+                <FullContainer>
+                  <Helmet title={customSiteTitle || site.siteMetadata.title} htmlAttributes={{ lang }}>
+                    <meta name="description" content={pkg.description} />
+                    <meta name="keywords" content={pkg.keywords} />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:card" content="summary" />
+                    <meta name="twitter:image" content={lion} />
+                    <meta name="twitter:site" content={site.siteMetadata.author} />
+                    <meta name="twitter:creator" content={site.siteMetadata.author} />
+                    <meta name="twitter:title" content={customSiteTitle || site.siteMetadata.title} />
+                    <meta name="twitter:description" content={site.siteMetadata.description} />
+                  </Helmet>
+                  <GlobalStyles />
+                  {childrenWithSetLanguage}
+                </FullContainer>
+              </ThemeProvider>
+            )}
+          />
+        </Transition>
+      )
+    }
 }
 
 export default Layout
