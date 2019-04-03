@@ -5,16 +5,19 @@ import gql from 'graphql-tag'
 import Card from '../components/card'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import Loader from '../components/loader'
 
 import Content from '../styles/content'
 
 import contacts from '../helpers/contacts'
 import intl from '../helpers/intl'
 
+import Either from '../utils/either'
+
 import client from '../services/client'
 
 const Projects = ({ lang, setLanguage }) => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState(null)
   const fetchCardList = async () =>
     client
       .query({
@@ -53,7 +56,11 @@ const Projects = ({ lang, setLanguage }) => {
     <>
       <Header navigation={intl.projects[lang].navigation} setLanguage={setLanguage} back />
       <Content>
-        <Card data={data} title={intl.projects[lang].title} />
+        <Either
+          condition={data}
+          correct={<Card data={data} title={intl.projects[lang].title} />}
+          exception={<Loader />}
+        />
       </Content>
       <Footer center contacts={contacts} />
     </>
