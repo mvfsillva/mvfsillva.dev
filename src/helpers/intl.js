@@ -55,6 +55,16 @@ const intl = {
       },
     },
   },
+  projects: {
+    'pt-br': {
+      navigation: ['sobre'],
+      title: 'Projetos',
+    },
+    en: {
+      navigation: ['about'],
+      title: 'projects',
+    },
+  },
 }
 
 export default intl
