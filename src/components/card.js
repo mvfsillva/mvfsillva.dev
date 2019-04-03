@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { theme } from 'styled-tools'
 
 import Paragraph from './paragraph'
+import Anchor from './anchor'
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,58 +15,75 @@ const Wrapper = styled.div`
   padding: ${theme('spacing.medium')};
   margin: ${theme('spacing')};
   color: ${theme('palette.black')};
-  height: 280px;
+  width: 380px;
+  height: 300px;
 `
 
-const Topics = styled.div`
+const FlexWrap = styled.div`
+  widows: 100%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: ${theme('spacing.large')};
+  justify-content: center;
 `
 
 const Title = styled.h2`
-  ${theme('typography.subtitle')}
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 40px;
 `
 
-const Bold = styled.span`
-  font-weight: 400;
-  margin-top: ${theme('spacing.large')};
+const Tag = styled.span`
+  padding: ${theme('spacing.small')};
+  margin: ${theme('spacing.small')};
+  display: inline-block;
+  border: 1px solid ${theme('palette.black')};
+  border-radius: ${theme('radius')};
+  font-size: 12px;
+  text-transform: lowercase;
+  letter-spacing: normal;
+  line-height: normal;
 `
 
-const Tag = styled.div`
-  display: flex;
-  span {
-    font-weight: 300;
-    font-size: 12px;
-    margin: ${theme('spacing.small')};
-    padding: ${theme('spacing.small')};
-    border: 1px solid ${theme('palette.black')};
-    border-radius: ${theme('radius')};
-  }
+const Description = styled(Paragraph)`
+  max-width: 50ch;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: initial;
+  letter-spacing: normal;
 `
 
-const Card = ({ title, description, tag }) => (
-  <Wrapper>
-    <Title>{title}</Title>
-    <Paragraph>{description}</Paragraph>
-    <Topics>
-      <Bold>Topics</Bold>
-      <Tag>
-        {tag.map(tag => (
-          <span key={tag}>{tag}</span>
-        ))}
-      </Tag>
-    </Topics>
-  </Wrapper>
-)
+const Card = ({ data }) => {
+  const { pinnedRepositories } = data
+  const repositories = pinnedRepositories === undefined ? [] : pinnedRepositories.edges
+
+  return (
+    <FlexWrap>
+      {repositories.map(({ node: { name, description, url, repositoryTopics } }) => (
+        <Anchor href={url} title={name} key={url} target="_blank">
+          <Wrapper>
+            <Title>{name}</Title>
+            <Description>{description}</Description>
+            <div>
+              {repositoryTopics.nodes.map(({ topic: { name } }) => (
+                <Tag key={name}>{name}</Tag>
+              ))}
+            </div>
+          </Wrapper>
+        </Anchor>
+      ))}
+    </FlexWrap>
+  )
+}
 
 Card.defaultProps = {
-  tag: [],
+  data: {},
 }
 
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  tag: PropTypes.array,
+  data: PropTypes.object,
 }
 
 export default Card
