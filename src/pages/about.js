@@ -65,7 +65,7 @@ const Bold = styled.span`
 class About extends PureComponent {
   static propTypes = {
     lang: PropTypes.string,
-    setLanguage: PropTypes.func
+    setLanguage: PropTypes.func,
   }
 
   render() {
@@ -75,11 +75,10 @@ class About extends PureComponent {
       <>
         <Hero>
           <Header
-            navigation={intl.about[lang].navigation}
-            onChange={this.handleChangeLanguage}
+            navigation={intl.general[lang].navigation}
+            setLanguage={setLanguage}
             back
             reverse
-            setLanguage={setLanguage}
           />
         </Hero>
         <Main>

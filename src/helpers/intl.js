@@ -2,24 +2,23 @@ const intl = {
   general: {
     'pt-br': {
       intro: 'Olá, Sou Marcus',
+      navigation: ['sobre', 'projetos'],
     },
     en: {
       intro: "Hi, I'm Marcus",
+      navigation: ['about', 'projects'],
     },
   },
   home: {
     'pt-br': {
       sub: 'Desenvolvedor Front-End',
-      navigation: ['sobre', 'projetos'],
     },
     en: {
       sub: 'Front-End Developer',
-      navigation: ['about', 'projects'],
     },
   },
   about: {
     'pt-br': {
-      navigation: ['projetos'],
       contacts: 'Se você quiser saber mais sobre mim ou entrar em contato',
       description: [
         'Natural de Salvador/BA, cresci no bairro da Mata Escura, atualmente mostro todo dendê da Bahia em São Paulo/SP, e trabalho como desenvolvedor sênior Front-end na IDwall.',
@@ -37,7 +36,6 @@ const intl = {
       },
     },
     en: {
-      navigation: ['projects'],
       contacts: 'If you want to know more about me or get in touch',
       description: [
         'Born in Salvador/BA, I grew up in the neighborhood of Mata Escura, currently showing all Bahia dendê oil in São Paulo/SP. I currently work as a senior front-end developer at IDwall.',
@@ -57,11 +55,9 @@ const intl = {
   },
   projects: {
     'pt-br': {
-      navigation: ['sobre'],
       title: 'Projetos',
     },
     en: {
-      navigation: ['about'],
       title: 'projects',
     },
   },

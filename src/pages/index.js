@@ -30,7 +30,7 @@ const Hgroup = styled.hgroup`
 class IndexPage extends PureComponent {
   static propTypes = {
     lang: PropTypes.string,
-    setLanguage: PropTypes.func
+    setLanguage: PropTypes.func,
   }
 
   render() {
@@ -38,7 +38,7 @@ class IndexPage extends PureComponent {
 
     return (
       <>
-        <Header navigation={intl.home[lang].navigation} setLanguage={setLanguage} />
+        <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} />
         <Content>
           <Hgroup>
             <Intro>{intl.general[lang].intro}</Intro>

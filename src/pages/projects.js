@@ -54,7 +54,7 @@ const Projects = ({ lang, setLanguage }) => {
 
   return (
     <>
-      <Header navigation={intl.projects[lang].navigation} setLanguage={setLanguage} back />
+      <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} back />
       <Content>
         <Either
           condition={data}
