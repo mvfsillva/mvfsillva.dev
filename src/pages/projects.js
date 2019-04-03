@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { theme } from 'styled-tools'
 import gql from 'graphql-tag'
 
 import Card from '../components/card'
@@ -14,19 +12,6 @@ import contacts from '../helpers/contacts'
 import intl from '../helpers/intl'
 
 import client from '../services/client'
-
-const Title = styled.h1`
-  ${theme('typography.title')};
-  margin-top: ${theme('spacing.xxxLarge')};
-  margin-bottom: ${theme('spacing.large')};
-  margin-left: ${theme('spacing.huge')};
-  margin-right: ${theme('spacing.huge')};
-  text-transform: capitalize;
-`
-
-const Box = styled(Content)`
-  flex-direction: column;
-`
 
 const Projects = ({ lang, setLanguage }) => {
   const [data, setData] = useState({})
@@ -62,17 +47,14 @@ const Projects = ({ lang, setLanguage }) => {
       .then(({ data: { repositoryOwner: pinnedRepositories } }) => setData(pinnedRepositories))
       .catch(error => console.error(error))
 
-  useEffect(() => {
-    fetchCardList()
-  }, {})
+  useEffect(() => fetchCardList(), {})
 
   return (
     <>
       <Header navigation={intl.projects[lang].navigation} setLanguage={setLanguage} back />
-      <Box>
-        <Title>{intl.projects[lang].title}</Title>
-        <Card data={data} />
-      </Box>
+      <Content>
+        <Card data={data} title={intl.projects[lang].title} />
+      </Content>
       <Footer center contacts={contacts} />
     </>
   )

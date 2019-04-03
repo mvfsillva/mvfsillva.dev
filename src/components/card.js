@@ -28,8 +28,13 @@ const FlexWrap = styled.div`
   justify-content: center;
 `
 
-const Title = styled.h2`
-  font-size: 26px;
+const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+`
+
+const CardTitle = styled.h2`
+  font-size: 20px;
   font-weight: 300;
   line-height: 40px;
 `
@@ -55,26 +60,38 @@ const Description = styled(Paragraph)`
   letter-spacing: normal;
 `
 
-const Card = ({ data }) => {
+const Title = styled.h1`
+  ${theme('typography.title')};
+  margin-top: ${theme('spacing.xxxLarge')};
+  margin-bottom: ${theme('spacing.large')};
+  margin-left: ${theme('spacing.huge')};
+  margin-right: ${theme('spacing.huge')};
+  text-transform: capitalize;
+`
+
+const Card = ({ data, title }) => {
   const { pinnedRepositories } = data
   const repositories = pinnedRepositories === undefined ? [] : pinnedRepositories.edges
 
   return (
-    <FlexWrap>
-      {repositories.map(({ node: { name, description, url, repositoryTopics } }) => (
-        <Anchor href={url} title={name} key={url} target="_blank">
-          <Wrapper>
-            <Title>{name}</Title>
-            <Description>{description}</Description>
-            <div>
-              {repositoryTopics.nodes.map(({ topic: { name } }) => (
-                <Tag key={name}>{name}</Tag>
-              ))}
-            </div>
-          </Wrapper>
-        </Anchor>
-      ))}
-    </FlexWrap>
+    <Container>
+      <Title>{title}</Title>
+      <FlexWrap>
+        {repositories.map(({ node: { name, description, url, repositoryTopics } }) => (
+          <Anchor href={url} title={name} key={url} target="_blank">
+            <Wrapper>
+              <CardTitle>{name}</CardTitle>
+              <Description>{description}</Description>
+              <div>
+                {repositoryTopics.nodes.map(({ topic: { name } }) => (
+                  <Tag key={name}>{name}</Tag>
+                ))}
+              </div>
+            </Wrapper>
+          </Anchor>
+        ))}
+      </FlexWrap>
+    </Container>
   )
 }
 
@@ -84,6 +101,7 @@ Card.defaultProps = {
 
 Card.propTypes = {
   data: PropTypes.object,
+  title: PropTypes.string.isRequired,
 }
 
 export default Card
