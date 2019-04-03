@@ -10,6 +10,7 @@ const Wrapper = styled.footer`
   width: 100%;
   text-align: ${ifProp('center', 'center', 'left')};
   flex-shrink: 0;
+  margin-bottom: ${theme('spacing.medium')};
   a {
     margin: ${theme('spacing')};
   }
