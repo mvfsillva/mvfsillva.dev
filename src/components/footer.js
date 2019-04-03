@@ -8,7 +8,6 @@ import Anchor from './anchor'
 
 const Wrapper = styled.footer`
   width: 100%;
-  margin-bottom: ${theme('spacing.xLarge')};
   text-align: ${ifProp('center', 'center', 'left')};
   flex-shrink: 0;
   a {
