@@ -42,7 +42,6 @@
     "gatsby-plugin-twitter": "^2.0.13",
     "gatsby-source-filesystem": "^2.0.23",
     "gatsby-source-graphql": "^2.0.15",
-    "graphql-tag": "^2.10.1",
     "isomorphic-fetch": "^2.2.1",
     "node-fetch": "^2.3.0",
     "polished": "^3.0.3",
