@@ -47,7 +47,6 @@
     "polished": "^3.0.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
-    "react-apollo": "^2.5.3",
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
     "react-transition-group": "^2.6.1",
