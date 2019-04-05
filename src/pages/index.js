@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -27,28 +27,22 @@ const Hgroup = styled.hgroup`
   flex-direction: column;
 `
 
-class IndexPage extends PureComponent {
-  static propTypes = {
-    lang: PropTypes.string,
-    setLanguage: PropTypes.func,
-  }
+const IndexPage = ({ lang, setLanguage }) => (
+  <>
+    <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} />
+    <Content>
+      <Hgroup>
+        <Intro>{intl.general[lang].intro}</Intro>
+        <SubTitle>{intl.home[lang].sub}</SubTitle>
+      </Hgroup>
+    </Content>
+    <Footer center contacts={contacts} />
+  </>
+)
 
-  render() {
-    const { lang, setLanguage } = this.props
-
-    return (
-      <>
-        <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} />
-        <Content>
-          <Hgroup>
-            <Intro>{intl.general[lang].intro}</Intro>
-            <SubTitle>{intl.home[lang].sub}</SubTitle>
-          </Hgroup>
-        </Content>
-        <Footer center contacts={contacts} />
-      </>
-    )
-  }
+IndexPage.propTypes = {
+  lang: PropTypes.string.isRequired,
+  setLanguage: PropTypes.func.isRequired,
 }
 
 export default IndexPage

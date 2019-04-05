@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'styled-tools'
@@ -62,46 +62,35 @@ const Bold = styled.span`
   margin-top: ${theme('spacing.large')};
 `
 
-class About extends PureComponent {
-  static propTypes = {
-    lang: PropTypes.string,
-    setLanguage: PropTypes.func,
-  }
+const About = ({ lang, setLanguage }) => (
+  <>
+    <Hero>
+      <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} back reverse />
+    </Hero>
+    <Main>
+      <Title>{intl.general[lang].intro}</Title>
+      {intl.about[lang].description.map(p => (
+        <Paragraph key={shortid.generate()}>{p}</Paragraph>
+      ))}
 
-  render() {
-    const { lang, setLanguage } = this.props
+      <Bold>{intl.about[lang].beyond.title}</Bold>
+      <List>
+        {intl.about[lang].beyond.list.map(l => (
+          <li key={shortid.generate()}>{l}</li>
+        ))}
+      </List>
 
-    return (
-      <>
-        <Hero>
-          <Header
-            navigation={intl.general[lang].navigation}
-            setLanguage={setLanguage}
-            back
-            reverse
-          />
-        </Hero>
-        <Main>
-          <Title>{intl.general[lang].intro}</Title>
-          {intl.about[lang].description.map(p => (
-            <Paragraph key={shortid.generate()}>{p}</Paragraph>
-          ))}
+      <Bold>{intl.about[lang].contacts}:</Bold>
+      <Paragraph>
+        <Footer contacts={contacts} />
+      </Paragraph>
+    </Main>
+  </>
+)
 
-          <Bold>{intl.about[lang].beyond.title}</Bold>
-          <List>
-            {intl.about[lang].beyond.list.map(l => (
-              <li key={shortid.generate()}>{l}</li>
-            ))}
-          </List>
-
-          <Bold>{intl.about[lang].contacts}:</Bold>
-          <Paragraph>
-            <Footer contacts={contacts} />
-          </Paragraph>
-        </Main>
-      </>
-    )
-  }
+About.propTypes = {
+  lang: PropTypes.string.isRequired,
+  setLanguage: PropTypes.func.isRequired,
 }
 
 export default About
