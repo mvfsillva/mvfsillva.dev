@@ -12,10 +12,11 @@ const getProjects = () => {
                   name
                   description
                   url
-                  viewerHasStarred
                   repositoryTopics(first: 9) {
                     nodes {
-                      topic { name }
+                      topic {
+                        name
+                      }
                     }
                   }
                 }
@@ -24,9 +25,10 @@ const getProjects = () => {
           }
         }
       }
-    `
+    `,
   )
-  console.log('my query: ', github.repositoryOwner)
+
+  return github.repositoryOwner.pinnedRepositories.edges
 }
 
 export default getProjects
