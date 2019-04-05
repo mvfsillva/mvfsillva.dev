@@ -69,38 +69,33 @@ const Title = styled.h1`
   text-transform: capitalize;
 `
 
-const Card = ({ data, title }) => {
-  const { pinnedRepositories } = data
-  const repositories = pinnedRepositories === undefined ? [] : pinnedRepositories.edges
-
-  return (
-    <Container>
-      <Title>{title}</Title>
-      <FlexWrap>
-        {repositories.map(({ node: { name, description, url, repositoryTopics } }) => (
-          <Anchor href={url} title={name} key={url} target="_blank">
-            <Wrapper>
-              <CardTitle>{name}</CardTitle>
-              <Description>{description}</Description>
-              <div>
-                {repositoryTopics.nodes.map(({ topic: { name } }) => (
-                  <Tag key={name}>{name}</Tag>
-                ))}
-              </div>
-            </Wrapper>
-          </Anchor>
-        ))}
-      </FlexWrap>
-    </Container>
-  )
-}
+const Card = ({ data, title }) => (
+  <Container>
+    <Title>{title}</Title>
+    <FlexWrap>
+      {data.map(({ node: { name, description, url, repositoryTopics } }) => (
+        <Anchor href={url} title={name} key={url} target="_blank">
+          <Wrapper>
+            <CardTitle>{name}</CardTitle>
+            <Description>{description}</Description>
+            <div>
+              {repositoryTopics.nodes.map(({ topic: { name } }) => (
+                <Tag key={name}>{name}</Tag>
+              ))}
+            </div>
+          </Wrapper>
+        </Anchor>
+      ))}
+    </FlexWrap>
+  </Container>
+)
 
 Card.defaultProps = {
-  data: {},
+  data: [],
 }
 
 Card.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
 }
 

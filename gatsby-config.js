@@ -1,4 +1,9 @@
-require('dotenv').config({ path: `.env` })
+const fetch = require('node-fetch')
+const { createHttpLink } = require('apollo-link-http')
+
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -48,6 +53,20 @@ module.exports = {
         head: true,
         anonymize: false,
         respectDNT: true
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        fieldName: 'github',
+        typeName: 'GitHub',
+        createLink: () => createHttpLink({
+          uri: 'https://api.github.com/graphql',
+          headers: {
+            Authorization: `bearer ${process.env.GATSBY_GITHUB_TOKEN}`,
+          },
+          fetch,
+        }),
       },
     },
   ],
