@@ -8,7 +8,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'mvfsillva',
-    description: 'Front-end developer',
+    description: 'Personal website of Marcus Silva, a front-end developer passionate for javascript, react, and new technologies. Currently work at IDwall,  and dreams of traveling the world',
     author: '@mvfsillva',
     siteUrl: 'https://mvfsillva.dev',
   },
