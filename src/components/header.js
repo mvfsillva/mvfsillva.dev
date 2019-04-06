@@ -8,7 +8,6 @@ import Lion from '../icons/lion'
 
 import Hidden from '../styles/hidden'
 
-import Locale from './locale'
 import Navbar from './navbar'
 
 const Wrapper = styled.header`
@@ -23,20 +22,20 @@ const Container = styled.div`
   margin-right: ${theme('spacing.medium.xxLarge')};
   margin-left: ${theme('spacing.medium.xxLarge')};
 
-  a {
-    z-index: ${theme('zindex.fixed')};
+  .logo {
+    z-index: ${theme('zindex.overlay')};
+    width: 33.33%;
   }
 `
 
 const Header = ({ navigation, back, reverse, setLanguage }) => (
   <Wrapper>
     <Container>
-      <Link to="/">
+      <Link to="/" className="logo">
         <Hidden>Lion</Hidden>
         <Lion reverse={reverse} width={50} height={60} />
       </Link>
-      <Navbar navigation={navigation} back={back} reverse={reverse} />
-      <Locale reverse={reverse} setLanguage={setLanguage} />
+      <Navbar navigation={navigation} back={back} reverse={reverse} setLanguage={setLanguage} />
     </Container>
   </Wrapper>
 )
