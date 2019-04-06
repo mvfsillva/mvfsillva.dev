@@ -31,12 +31,6 @@ const Hero = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
   }
-
-  @media ${theme('responsive.phone')} {
-    header {
-      display: none;
-    }
-  }
 `
 
 const Main = styled.main`
