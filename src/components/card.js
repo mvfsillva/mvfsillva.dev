@@ -16,7 +16,12 @@ const Wrapper = styled.div`
   margin: ${theme('spacing')};
   color: ${theme('palette.black')};
   width: 380px;
-  height: 300px;
+  height: 260px;
+
+  @media (max-width: 600px) {
+    width: 280px;
+    height: 320px;
+  }
 `
 
 const FlexWrap = styled.div`
@@ -67,6 +72,7 @@ const Title = styled.h1`
   margin-left: ${theme('spacing.huge')};
   margin-right: ${theme('spacing.huge')};
   text-transform: capitalize;
+  text-align: center;
 `
 
 const Card = ({ data, title }) => (
