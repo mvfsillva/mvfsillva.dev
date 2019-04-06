@@ -29,6 +29,37 @@ const Button = styled.button`
 
 const Flag = styled.div`
   z-index: ${theme('zindex.fixed')};
+  span {
+    display: none;
+  }
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid white;
+
+    svg {
+      display: none;
+    }
+    span {
+      display: block;
+      ${theme('typography.link')};
+      padding: ${theme('spacing.small')};
+      color: ${theme('palette.white')};
+    }
+
+    ${Button} {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      &:hover {
+        color: ${({ theme }) => transparentize(0.5, `${theme.palette.white}`)};
+        background-color: ${({ theme }) => transparentize(0.5, `${theme.palette.black}`)};
+        ${transitions(transition({ property: 'background', duration: '250ms' }))};
+      }
+    }
+  }
 `
 
 const Locale = ({ reverse, setLanguage }) => (
@@ -36,10 +67,12 @@ const Locale = ({ reverse, setLanguage }) => (
     <Button onClick={() => setLanguage('pt-br')} type="button">
       <Hidden>Português Brasileiro</Hidden>
       <BrazilFlag reverse={reverse} size={24} />
+      <span>Português Brasileiro</span>
     </Button>
     <Button onClick={() => setLanguage('en')} type="button">
       <Hidden>English</Hidden>
       <UsaFlag reverse={reverse} size={24} />
+      <span>English</span>
     </Button>
   </Flag>
 )
