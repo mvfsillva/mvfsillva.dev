@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { theme } from 'styled-tools'
 
 import Content from '../styles/content'
 
@@ -11,12 +12,12 @@ import contacts from '../helpers/contacts'
 import intl from '../helpers/intl'
 
 const Intro = styled.h1`
-  ${({ theme }) => theme.typography.intro};
+  ${theme('typography.intro')};
 `
 
 const SubTitle = styled.h2`
-  ${({ theme }) => theme.typography.subtitle};
-  margin-top: ${({ theme }) => theme.spacing.large};
+  ${theme('typography.subtitle')};
+  margin-top: ${theme('spacing.large')};
 `
 
 const Hgroup = styled.hgroup`
@@ -25,6 +26,10 @@ const Hgroup = styled.hgroup`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  @media ${theme('responsive.smallTablet')} {
+    align-items: flex-start;
+  }
 `
 
 const IndexPage = ({ lang, setLanguage }) => (
