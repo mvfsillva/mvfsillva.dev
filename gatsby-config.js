@@ -14,15 +14,16 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-resolve-src',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-twitter',
     'gatsby-plugin-layout',
-    'gatsby-plugin-offline',
+    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'static',
-        path: `${__dirname}/src/static`,
+        path: `${__dirname}/src/`,
       },
     },
     {
@@ -69,5 +70,6 @@ module.exports = {
         }),
       },
     },
+    'gatsby-plugin-offline',
   ],
 }
