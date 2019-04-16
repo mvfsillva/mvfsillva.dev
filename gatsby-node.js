@@ -1,6 +1,7 @@
-const _ = require('lodash')
 const path = require('path')
 const slash = require('slash')
+const { createFilePath } = require('gatsby-source-filesystem')
+const _ = require('lodash')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -29,10 +30,9 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    // Create blog posts pages.
-    result.data.allMarkdownRemark.edges.map(edge => {
+    result.data.allMarkdownRemark.edges.map(edge =>
       createPage({
-        path: edge.node.fields.slug, // required
+        path: edge.node.fields.slug,
         component: slash(blogPostTemplate),
         context: {
           slug: edge.node.fields.slug,
@@ -40,9 +40,8 @@ exports.createPages = ({ graphql, actions }) => {
           shadow: edge.node.frontmatter.shadow,
         },
       })
-    })
+    )
 
-    // Create tag pages.
     let tags = []
     result.data.allMarkdownRemark.edges.map(edge => {
       if (_.get(edge, 'node.frontmatter.tags')) {
@@ -54,7 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     tags.map(tag => {
       const tagPath = `/tags/${_.kebabCase(tag)}/`
-      createPage({
+      return createPage({
         path: tagPath,
         component: tagPagesTemplate,
         context: { tag }
@@ -63,25 +62,23 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
-// Add custom url pathname for blog posts.
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === 'File') {
-    const parsedFilePath = path.parse(node.absolutePath)
-    const slug = `/${parsedFilePath.dir.split('---')[1]}/`
+    const slug = createFilePath({ node, getNode, basePath: 'posts' })
     createNodeField({ node, name: 'slug', value: slug })
   } else if (node.internal.type === 'MarkdownRemark' && typeof node.slug === 'undefined') {
     const fileNode = getNode(node.parent)
     createNodeField({
       node,
-      name: `slug`,
+      name: 'slug',
       value: fileNode.fields.slug,
     })
 
     if (node.frontmatter.tags) {
       const tagSlugs = node.frontmatter.tags.map(tag => `/tags/${_.kebabCase(tag)}/`)
-      createNodeField({ node, name: `tagSlugs`, value: tagSlugs })
+      createNodeField({ node, name: 'tagSlugs', value: tagSlugs })
     }
   }
 }
