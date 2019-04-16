@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'styled-tools'
 
+
 import Paragraph from './paragraph'
-import Anchor from './anchor'
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,15 +22,6 @@ const Wrapper = styled.div`
     width: 280px;
     height: 320px;
   }
-`
-
-const FlexWrap = styled.div`
-  widows: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin-bottom: ${theme('spacing.large')};
-  justify-content: center;
 `
 
 const Container = styled.section`
@@ -65,44 +56,22 @@ const Description = styled(Paragraph)`
   letter-spacing: normal;
 `
 
-const Title = styled.h1`
-  ${theme('typography.title')};
-  margin-top: ${theme('spacing.xxxLarge')};
-  margin-bottom: ${theme('spacing.large')};
-  margin-left: ${theme('spacing.huge')};
-  margin-right: ${theme('spacing.huge')};
-  text-transform: capitalize;
-  text-align: center;
-`
-
-const Card = ({ data, title }) => (
+const Card = ({ name, description, tag }) => (
   <Container>
-    <Title>{title}</Title>
-    <FlexWrap>
-      {data.map(({ node: { name, description, url, repositoryTopics } }) => (
-        <Anchor href={url} title={name} key={url} target="_blank">
-          <Wrapper>
-            <CardTitle>{name}</CardTitle>
-            <Description>{description}</Description>
-            <div>
-              {repositoryTopics.nodes.map(({ topic: { name } }) => (
-                <Tag key={name}>{name}</Tag>
-              ))}
-            </div>
-          </Wrapper>
-        </Anchor>
-      ))}
-    </FlexWrap>
+    <Wrapper>
+      <CardTitle>{name}</CardTitle>
+      <Description>{description}</Description>
+      <div>
+        <Tag>{tag}</Tag>
+      </div>
+    </Wrapper>
   </Container>
 )
 
-Card.defaultProps = {
-  data: [],
-}
-
 Card.propTypes = {
-  data: PropTypes.array.isRequired,
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
 }
 
 export default Card
