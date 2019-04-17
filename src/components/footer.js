@@ -8,9 +8,11 @@ import Anchor from './anchor'
 
 const Wrapper = styled.footer`
   width: 100%;
-  text-align: ${ifProp('center', 'center', 'left')};
-  flex-shrink: 0;
   margin-bottom: ${theme('spacing.medium')};
+  display: flex;
+  flex: auto 1;
+  justify-content: ${ifProp('center', 'center', 'flex-start')};
+  align-items: flex-end;
   a {
     margin: ${theme('spacing')};
   }
