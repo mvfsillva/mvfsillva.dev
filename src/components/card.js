@@ -4,38 +4,14 @@ import styled from 'styled-components'
 import { theme } from 'styled-tools'
 
 import Paragraph from './paragraph'
-import Anchor from './anchor'
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   border-radius: ${theme('radious')};
-  box-shadow: ${theme('shadow.small')};
+  box-shadow: ${theme('shadow.medium')};
   background-color: ${theme('palette.white')};
   padding: ${theme('spacing.medium')};
   margin: ${theme('spacing')};
   color: ${theme('palette.black')};
-  width: 380px;
-  height: 260px;
-
-  @media (max-width: 600px) {
-    width: 280px;
-    height: 320px;
-  }
-`
-
-const FlexWrap = styled.div`
-  widows: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin-bottom: ${theme('spacing.large')};
-  justify-content: center;
-`
-
-const Container = styled.section`
-  display: flex;
-  flex-direction: column;
 `
 
 const CardTitle = styled.h2`
@@ -65,44 +41,22 @@ const Description = styled(Paragraph)`
   letter-spacing: normal;
 `
 
-const Title = styled.h1`
-  ${theme('typography.title')};
-  margin-top: ${theme('spacing.xxxLarge')};
-  margin-bottom: ${theme('spacing.large')};
-  margin-left: ${theme('spacing.huge')};
-  margin-right: ${theme('spacing.huge')};
-  text-transform: capitalize;
-  text-align: center;
-`
-
-const Card = ({ data, title }) => (
-  <Container>
-    <Title>{title}</Title>
-    <FlexWrap>
-      {data.map(({ node: { name, description, url, repositoryTopics } }) => (
-        <Anchor href={url} title={name} key={url} target="_blank">
-          <Wrapper>
-            <CardTitle>{name}</CardTitle>
-            <Description>{description}</Description>
-            <div>
-              {repositoryTopics.nodes.map(({ topic: { name } }) => (
-                <Tag key={name}>{name}</Tag>
-              ))}
-            </div>
-          </Wrapper>
-        </Anchor>
+const Card = ({ title, description, tag }) => (
+  <Wrapper>
+    <CardTitle>{title}</CardTitle>
+    <Description>{description}</Description>
+    <div>
+      {tag.map(({ topic: { name } }) => (
+        <Tag key={name}>{name}</Tag>
       ))}
-    </FlexWrap>
-  </Container>
+    </div>
+  </Wrapper>
 )
 
-Card.defaultProps = {
-  data: [],
-}
-
 Card.propTypes = {
-  data: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  tag: PropTypes.array.isRequired,
 }
 
 export default Card
