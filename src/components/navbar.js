@@ -10,7 +10,7 @@ import { transition } from '../mixins/transition'
 
 import setRouting from '../helpers/set-routing'
 
-import If from '../utils/if'
+import If from '../helpers/if'
 
 import Locale from './locale'
 
