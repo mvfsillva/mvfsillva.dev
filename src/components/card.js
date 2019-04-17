@@ -3,30 +3,15 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'styled-tools'
 
-
 import Paragraph from './paragraph'
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   border-radius: ${theme('radious')};
-  box-shadow: ${theme('shadow.small')};
+  box-shadow: ${theme('shadow.medium')};
   background-color: ${theme('palette.white')};
   padding: ${theme('spacing.medium')};
   margin: ${theme('spacing')};
   color: ${theme('palette.black')};
-  width: 380px;
-  height: 260px;
-
-  @media (max-width: 600px) {
-    width: 280px;
-    height: 320px;
-  }
-`
-
-const Container = styled.section`
-  display: flex;
-  flex-direction: column;
 `
 
 const CardTitle = styled.h2`
@@ -56,22 +41,22 @@ const Description = styled(Paragraph)`
   letter-spacing: normal;
 `
 
-const Card = ({ name, description, tag }) => (
-  <Container>
-    <Wrapper>
-      <CardTitle>{name}</CardTitle>
-      <Description>{description}</Description>
-      <div>
-        <Tag>{tag}</Tag>
-      </div>
-    </Wrapper>
-  </Container>
+const Card = ({ title, description, tag }) => (
+  <Wrapper>
+    <CardTitle>{title}</CardTitle>
+    <Description>{description}</Description>
+    <div>
+      {tag.map(({ topic: { name } }) => (
+        <Tag key={name}>{name}</Tag>
+      ))}
+    </div>
+  </Wrapper>
 )
 
 Card.propTypes = {
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
+  tag: PropTypes.array.isRequired,
 }
 
 export default Card
