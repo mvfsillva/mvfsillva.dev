@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import shortid from 'shortid'
 import { theme, ifProp } from 'styled-tools'
 
-import Anchor from './anchor'
+import Link from './link'
 
 const Wrapper = styled.footer`
   width: 100%;
@@ -21,9 +21,9 @@ const Wrapper = styled.footer`
 const Footer = ({ contacts, center }) => (
   <Wrapper center={center}>
     {contacts.map(({ name, link }) => (
-      <Anchor key={shortid.generate()} href={link} rel="noopener noreferrer">
+      <Link key={shortid.generate()} href={link} rel="noopener noreferrer">
         {name}
-      </Anchor>
+      </Link>
     ))}
   </Wrapper>
 )
