@@ -35,7 +35,7 @@ const Hgroup = styled.hgroup`
 const IndexPage = ({ lang, setLanguage }) => (
   <>
     <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} />
-    <Content>
+    <Content flex={10}>
       <Hgroup>
         <Intro>{intl.general[lang].intro}</Intro>
         <SubTitle>{intl.home[lang].sub}</SubTitle>
