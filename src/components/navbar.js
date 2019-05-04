@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import shortid from 'shortid'
@@ -47,7 +47,7 @@ const Nav = styled.nav`
       flex-direction: column;
       background-color: ${({ theme }) => theme.palette.gray['800']};
       width: 100%;
-      height: 100vh;
+      height: ${ifProp('isMobile', '100vh', 0)};
       ${transitions(transition({ duration: '0.5s', ease: 'ease-in' }))};
       overflow-y: hidden;
       top: 0px;
@@ -106,19 +106,6 @@ const Label = styled.label`
   }
 `
 
-const Check = styled.input`
-  display: none;
-  @media (max-width: 600px) {
-    &:checked ~ .nav-links {
-      overflow-y: auto;
-      padding-top: ${theme('spacing.xxxHuge')};
-    }
-    &:not(:checked) ~ .nav-links {
-      height: 0px;
-    }
-  }
-`
-
 const Content = styled.div`
   width: 50%;
   text-align: center;
@@ -133,34 +120,40 @@ const Content = styled.div`
   }
 `
 
-const Navbar = ({ navigation, back, reverse, setLanguage }) => (
-  <>
-    <Nav reverse={reverse}>
-      <Check type="checkbox" id="check" />
-      <Sandwich>
-        <Label htmlFor="check" reverse={reverse}>
-          <span />
-          <span />
-          <span />
-        </Label>
-      </Sandwich>
+const Navbar = ({ navigation, back, reverse, setLanguage }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => setIsOpen(!isOpen)
 
-      <div className="nav-links">
-        <Content>
-          <If test={back}>
-            <Link to="/">Home</Link>
-          </If>
-          {navigation.map(router => (
-            <Link key={shortid.generate()} to={`/${setRouting(router).url}`}>
-              {setRouting(router).text}
-            </Link>
-          ))}
-        </Content>
-        <Locale reverse={reverse} setLanguage={setLanguage} />
-      </div>
-    </Nav>
-  </>
-)
+  console.log(isOpen)
+
+  return (
+    <>
+      <Nav reverse={reverse} isMobile={isOpen}>
+        <Sandwich onClick={toggle}>
+          <Label reverse={reverse}>
+            <span />
+            <span />
+            <span />
+          </Label>
+        </Sandwich>
+
+        <div className="nav-links">
+          <Content>
+            <If test={back}>
+              <Link to="/">Home</Link>
+            </If>
+            {navigation.map(router => (
+              <Link key={shortid.generate()} to={`/${setRouting(router).url}`}>
+                {setRouting(router).text}
+              </Link>
+            ))}
+          </Content>
+          <Locale reverse={reverse} setLanguage={setLanguage} />
+        </div>
+      </Nav>
+    </>
+  )
+}
 
 Navbar.defaultProps = {
   navigation: [],
