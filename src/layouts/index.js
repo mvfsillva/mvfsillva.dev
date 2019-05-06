@@ -11,11 +11,11 @@ import Transition from '../components/transition'
 
 import lion from '../static/images/lion.png'
 
-import pkg from '../../package.json'
+import pkg from '../../package'
 
 class Layout extends Component {
   state = {
-    lang: 'en'
+    lang: 'en',
   }
 
   static propTypes = {
@@ -28,7 +28,7 @@ class Layout extends Component {
     this.setState({ lang })
   }
 
-  render () {
+  render() {
     const { lang } = this.state
     const { children, location } = this.props
     const { pathname } = location
@@ -38,7 +38,9 @@ class Layout extends Component {
       this.setState({ lang })
     }
 
-    const childrenWithSetLanguage = Children.map(children, child => cloneElement(child, { lang, setLanguage }))
+    const childrenWithSetLanguage = Children.map(children, child =>
+      cloneElement(child, { lang, setLanguage }),
+    )
 
     return (
       <Transition location={location}>
@@ -55,7 +57,11 @@ class Layout extends Component {
               }
             }
           `}
-          render={({ site: { siteMetadata: { title, author, description } } }) => (
+          render={({
+            site: {
+              siteMetadata: { title, author, description },
+            },
+          }) => (
             <ThemeProvider theme={theme}>
               <FullContainer>
                 <Helmet title={customSiteTitle || title} htmlAttributes={{ lang }}>
@@ -68,6 +74,17 @@ class Layout extends Component {
                   <meta name="twitter:creator" content={author} />
                   <meta name="twitter:title" content={customSiteTitle || title} />
                   <meta name="twitter:description" content={description} />
+
+                  <meta name="apple-mobile-web-app-title" content="mvfsillva" />
+                  <meta name="apple-mobile-web-app-capable" content="yes" />
+                  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+                  <meta name="application-name" content="mvfsillva" />
+
+                  <meta name="msapplication-TileColor" content="#ffffff" />
+
+                  <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png" />
+                  <link rel="apple-touch-startup-image" href="static/apple-touch-icon.png" />
+                  <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#ffffff" />
                 </Helmet>
                 <GlobalStyles />
                 {childrenWithSetLanguage}
