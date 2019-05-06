@@ -2,11 +2,11 @@ const intl = {
   general: {
     'pt-br': {
       intro: 'Olá, Sou Marcus',
-      navigation: ['sobre', 'projetos'],
+      navigation: ['sobre', 'projetos', 'artigos'],
     },
     en: {
       intro: "Hi, I'm Marcus",
-      navigation: ['about', 'projects'],
+      navigation: ['about', 'projects', 'articles'],
     },
   },
   home: {
