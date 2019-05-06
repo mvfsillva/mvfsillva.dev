@@ -10,6 +10,7 @@ import { transition } from '../mixins/transition'
 const Wrapper = styled.a`
   ${theme('typography.link')};
   color: ${theme('palette.black')};
+  cursor: pointer;
   ${transitions(transition({ property: 'color', duration: '250ms' }))};
   &:hover {
     color: ${({ theme }) => transparentize(0.5, `${theme.palette.black}`)};
