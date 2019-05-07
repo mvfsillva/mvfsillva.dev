@@ -94,7 +94,7 @@
   "lint-staged": {
     "*.js": [
       "yarn lint",
-      "prettier --semi false --single-quote --print-width 100 --tab-width 2 --trailing-comma all --write",
+      "prettier --semi false --single-quote --print-width 120 --tab-width 2 --trailing-comma all --write",
       "git add"
     ]
   }
