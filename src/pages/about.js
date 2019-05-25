@@ -4,9 +4,7 @@ import styled from 'styled-components'
 import { theme } from 'styled-tools'
 import shortid from 'shortid'
 
-import Paragraph from '../components/paragraph'
-import Footer from '../components/footer'
-import Header from '../components/header'
+import { Paragraph, Header, Footer } from '../components'
 
 import contacts from '../helpers/contacts'
 import intl from '../helpers/intl'

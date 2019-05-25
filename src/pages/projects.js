@@ -5,11 +5,7 @@ import { theme } from 'styled-tools'
 import { transitions } from 'polished'
 
 import { transition } from '../mixins/transition'
-
-import Card from '../components/card'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Link from '../components/link'
+import { Card, Header, Footer, Link } from '../components'
 
 import Content from '../styles/content'
 

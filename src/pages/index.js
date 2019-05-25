@@ -3,13 +3,12 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'styled-tools'
 
-import Content from '../styles/content'
-
-import Header from '../components/header'
-import Footer from '../components/footer'
+import { Header, Footer } from '../components'
 
 import contacts from '../helpers/contacts'
 import intl from '../helpers/intl'
+
+import Content from '../styles/content'
 
 const Intro = styled.h1`
   ${theme('typography.intro')};

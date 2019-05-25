@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'styled-tools'
 
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Link from '../components/link'
+import { Header, Footer, Link } from '../components'
 
 import getPosts from '../queries/posts'
 
@@ -17,11 +15,6 @@ import Content from '../styles/content'
 const PageTitle = styled.h1`
   ${theme('typography.title')};
   margin-bottom: ${theme('spacing.xHuge')};
-  min-width: 800px;
-  text-align: left;
-  span {
-    ${theme('typography.paragraph')};
-  }
 `
 
 const PostList = styled.article`
@@ -50,16 +43,16 @@ const Articles = ({ lang, setLanguage }) => {
   return (
     <>
       <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} back />
+      <PageTitle>Articles</PageTitle>
       <Main>
-        <PageTitle>Articles</PageTitle>
-        {data.edges.map(({ id, node }) => (
+        {/* {data.edges.map(({ id, node }) => (
           <Link key={id} to={node.fields.slug}>
             <PostList>
               <p>{node.frontmatter.title}</p>
               <span>{node.frontmatter.date}</span>
             </PostList>
           </Link>
-        ))}
+        ))} */}
       </Main>
       <Footer center contacts={contacts} />
     </>
