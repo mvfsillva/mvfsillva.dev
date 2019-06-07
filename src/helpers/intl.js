@@ -21,7 +21,7 @@ const intl = {
     'pt-br': {
       contacts: 'Se você quiser saber mais sobre mim ou entrar em contato',
       description: [
-        'Natural de Salvador/BA, cresci no bairro da Mata Escura, atualmente mostro todo dendê da Bahia em São Paulo/SP, e trabalho como desenvolvedor sênior Front-end na IDwall.',
+        'Natural de Salvador/BA, cresci no bairro da Mata Escura, atualmente mostro todo dendê da Bahia em São Paulo/SP, e trabalho como desenvolvedor sênior Front-end na Stone.',
         'Já trabalhei em lugares como SENAI CIMATEC, 99 Táxis, Nextel (atualmente Claro) e algumas outras. Sou formado em desenvolvimento de sistemas, e também em Analise e desenvolvimento de sistemas pelo SENAI.',
         'Ao longo da minha carreira meu principal foco tem sido tecnologias web, e sou apaixonado por trabalhar com projetos desafiadores e criativos.',
       ],
@@ -38,7 +38,7 @@ const intl = {
     en: {
       contacts: 'If you want to know more about me or get in touch',
       description: [
-        'Born in Salvador/BA, I grew up in the neighborhood of Mata Escura, currently showing all Bahia dendê oil in São Paulo/SP. I currently work as a senior front-end developer at IDwall.',
+        'Born in Salvador/BA, I grew up in the neighborhood of Mata Escura, currently showing all Bahia dendê oil in São Paulo/SP. I currently work as a senior front-end developer at Stone.',
         "I've worked on places like SENAI CIMATEC, 99 Táxis, Nextel (currently Claro), and some others. I have a degree in software development and also in systems analysis and development by SENAI.",
         'My main focus throughout my career has been web technologies and I love work with challenging and creative projects.',
       ],
