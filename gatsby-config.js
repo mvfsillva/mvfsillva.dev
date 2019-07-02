@@ -20,13 +20,6 @@ module.exports = {
     'gatsby-plugin-layout',
     'gatsby-transformer-remark',
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/posts`,
-        name: 'posts',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://mvfsillva.dev',
