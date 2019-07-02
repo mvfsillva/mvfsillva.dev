@@ -12,8 +12,8 @@
 - XO 
 - Apollo
 - Graphql
-- Githu API
-- Zeit/now
+- Github API
+- Netlify
 
 ## Contributing
 
