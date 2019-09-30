@@ -28,7 +28,7 @@
     "now-build": "yarn build"
   },
   "dependencies": {
-    "apollo-boost": "^0.3.1",
+    "apollo-boost": "^0.4.0",
     "apollo-link-http": "^1.5.14",
     "gatsby": "^2.2.8",
     "gatsby-image": "^2.0.30",
