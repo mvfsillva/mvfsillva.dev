@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "dotenv": "8.1.0",
-    "husky": "3.0.8",
+    "husky": "3.0.9",
     "lint-staged": "9.4.2",
     "prettier": "1.18.2",
     "rimraf": "3.0.0",
