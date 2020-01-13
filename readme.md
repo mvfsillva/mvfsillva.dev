@@ -5,6 +5,7 @@
 </p>
 
 ---
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fe991ac5-e8da-4a5c-9458-c176a5c49a27/deploy-status)](https://app.netlify.com/sites/eager-golick-445e40/deploys)
 
 - React 16
 - Gatsby
