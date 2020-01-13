@@ -59,7 +59,7 @@ class Layout extends Component {
           `}
           render={({
             site: {
-              siteMetadata: { title, author, description },
+              siteMetadata: { title, author, description, siteUrl },
             },
           }) => (
             <ThemeProvider theme={theme}>
@@ -85,6 +85,11 @@ class Layout extends Component {
                   <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png" />
                   <link rel="apple-touch-startup-image" href="static/apple-touch-icon.png" />
                   <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#ffffff" />
+
+                  <meta property="og:title" content={customSiteTitle || title}/>
+                  <meta property="og:image" content={lion} />
+                  <meta property="og:description" content={pkg.description} />
+                  <meta property="og:url" content={siteUrl} />
                 </Helmet>
                 <GlobalStyles />
                 {childrenWithSetLanguage}
