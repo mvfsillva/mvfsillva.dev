@@ -12034,6 +12034,11 @@ typeface-playfair-display@^0.0.72:
   resolved "https://registry.yarnpkg.com/typeface-playfair-display/-/typeface-playfair-display-0.0.72.tgz#1e82434340d83a496abc5c2c9d086bfc0a6c3741"
   integrity sha512-iXf4FcXNI/OLxHQQ72/7gXuu34fiX6DttlB8uruNu971AXgwr2OL6GWS5efRXrEwA35M0adVvXe4hKZWVwao5Q==
 
+typescript@^3.0.0:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.2.tgz#91d6868aaead7da74f493c553aeff76c0c0b1d5a"
+  integrity sha512-EgOVgL/4xfVrCMbhYKUQTdF37SQn4Iw73H5BgCrF1Abdun7Kwy/QZsE/ssAy0y4LxBbvua3PIbFsbRczWWnDdQ==
+
 ua-parser-js@^0.7.18:
   version "0.7.19"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
@@ -12874,10 +12879,10 @@ xmlhttprequest-ssl@~1.5.4:
   resolved "https://registry.yarnpkg.com/xmlhttprequest-ssl/-/xmlhttprequest-ssl-1.5.5.tgz#c2876b06168aadc40e57d97e81191ac8f4398b3e"
   integrity sha1-wodrBhaKrcQOV9l+gRkayPQ5iz4=
 
-xo@0.27.1:
-  version "0.27.1"
-  resolved "https://registry.yarnpkg.com/xo/-/xo-0.27.1.tgz#4cd2f70932e90abcb27080caf5b7338a5c9e081a"
-  integrity sha512-7OtSoqfL+LVOhhD3jUafBatxqXAaEfmD1Xtbmklq8SnTFK0ot0cJjRJiXzoKhRAUORY2DBDfPAxdmPj+hAZGoA==
+xo@0.27.2:
+  version "0.27.2"
+  resolved "https://registry.yarnpkg.com/xo/-/xo-0.27.2.tgz#861ddc46bb66f4ff583714e6d2552c8733c59316"
+  integrity sha512-vCkyHH/2tyQh1eplDDRMCAPfKA6fXnXiFkChOGLF/5FnOEe9e2qCydDZZrrKA+3Vd8xPsRdoAv/HTnmqa+Z71w==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.21.0"
     "@typescript-eslint/parser" "^2.21.0"
@@ -12917,6 +12922,7 @@ xo@0.27.1:
     semver "^7.1.3"
     slash "^3.0.0"
     to-absolute-glob "^2.0.2"
+    typescript "^3.0.0"
     update-notifier "^4.0.0"
 
 xstate@^3.1.0:
