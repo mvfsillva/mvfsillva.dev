@@ -66,8 +66,8 @@
     "husky": "3.1.0",
     "lint-staged": "9.5.0",
     "prettier": "1.19.1",
-    "rimraf": "3.0.0",
-    "xo": "0.25.3"
+    "rimraf": "3.0.2",
+    "xo": "0.29.1"
   },
   "xo": {
     "parser": "babel-eslint",
