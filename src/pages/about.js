@@ -30,12 +30,6 @@ const Hero = styled.div`
     background-size: cover;
   }
 `
-
-const Main = styled.main`
-  max-width: 700px;
-  margin: ${theme('spacing.xLarge')};
-`
-
 const Title = styled.h1`
   ${theme('typography.title')};
   margin-top: ${theme('spacing.xxxLarge')};
@@ -56,10 +50,9 @@ const Bold = styled.span`
 
 const About = ({ lang, setLanguage }) => (
   <>
-    <Hero>
-      <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} back reverse />
-    </Hero>
-    <Main>
+    <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} back  />
+    <Hero />
+    <main>
       <Title>{intl.general[lang].intro}</Title>
       {intl.about[lang].description.map(p => (
         <Paragraph key={shortid.generate()}>{p}</Paragraph>
@@ -76,7 +69,7 @@ const About = ({ lang, setLanguage }) => (
       <Paragraph>
         <Footer contacts={contacts} />
       </Paragraph>
-    </Main>
+    </main>
   </>
 )
 

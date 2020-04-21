@@ -11,7 +11,7 @@ import Hidden from '../styles/hidden'
 import Navbar from './navbar'
 
 const Wrapper = styled.header`
-  width: 100%;
+  width: calc(100% - 32px);
   padding: ${theme('spacing.medium')};
 `
 
