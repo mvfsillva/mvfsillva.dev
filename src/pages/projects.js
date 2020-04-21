@@ -16,42 +16,40 @@ import { useGithubRepositories } from '../hooks/use-projects'
 const FlexWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
   a {
-    width: 40%;
-    margin: ${theme('spacing.small')};
     padding: ${theme('spacing')};
     > div {
       height: 95%;
       ${transitions(transition({ property: 'box-shadow', duration: '250ms' }))};
     }
+
     &:hover {
       > div {
         box-shadow: ${theme('shadow.large')};
         ${transitions(transition({ property: 'box-shadow', duration: '250ms' }))};
       }
     }
-  }
 
-  @media (max-width: 870px) {
-    a {
-      width: 100%;
+    @media (min-width: 40rem) {
+      width: 50%;
+    }
+
+    @media (min-width: 56rem) {
+      width: 33.3333%;
     }
   }
 `
-
-const Main = styled(Content)`
-  flex: inherit;
-`
-
 const Projects = ({ lang, setLanguage }) => {
   const repositories = useGithubRepositories()
 
   return (
     <>
       <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} back />
-      <Main>
+      <Content>
         <FlexWrap>
           {repositories.map(({ node: { name, description, url, repositoryTopics: { nodes } } }) => (
             <Link href={url} key={name}>
@@ -59,7 +57,7 @@ const Projects = ({ lang, setLanguage }) => {
             </Link>
           ))}
         </FlexWrap>
-      </Main>
+      </Content>
       <Footer center contacts={contacts} />
     </>
   )
