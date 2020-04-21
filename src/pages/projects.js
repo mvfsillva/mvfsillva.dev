@@ -11,8 +11,7 @@ import Content from '../styles/content'
 
 import contacts from '../helpers/contacts'
 import intl from '../helpers/intl'
-
-import getProjects from '../queries/projects'
+import { useGithubRepositories } from '../hooks/use-projects'
 
 const FlexWrap = styled.div`
   display: flex;
@@ -47,14 +46,14 @@ const Main = styled(Content)`
 `
 
 const Projects = ({ lang, setLanguage }) => {
-  const data = getProjects()
+  const repositories = useGithubRepositories()
 
   return (
     <>
       <Header navigation={intl.general[lang].navigation} setLanguage={setLanguage} back />
       <Main>
         <FlexWrap>
-          {data.map(({ node: { name, description, url, repositoryTopics: { nodes } } }) => (
+          {repositories.map(({ node: { name, description, url, repositoryTopics: { nodes } } }) => (
             <Link href={url} key={name}>
               <Card title={name} description={description} tag={nodes} />
             </Link>
